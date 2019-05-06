@@ -1,0 +1,48 @@
+{
+  "mapwidth": "960",
+  "mapheight": "600",
+  "groups": [{
+      "id": "predavalnice",
+      "title": "predavalnice",
+      "color": "#f23543",
+      "toggle": "true",
+      "switchoff": "true",
+      "legend": "true",
+      "hide": "false"
+    },
+    {
+      "id": "lab",
+      "title": "laboratiriji",
+      "about": "A lovely group",
+      "color": "#C91965",
+      "legend": "true",
+      "hide": "false",
+      "toggle": "true",
+      "switchoff": "false"
+    },
+    {
+      "id": "kabinet",
+      "title": "kabinet",
+      "color": "#495360",
+      "toggle": "false",
+      "legend": "true"
+    }
+  ],
+  "levels": [{
+    "id": "usa",
+    "title": "United States",
+    "map": "maps/feri.svg",
+    "minimap": "maps/usa-mini.jpg",
+    "locations": [{
+      "id": "alfa",
+      "title": "G2-P0-Alfa",
+      "about": "The evergreen what",
+      "description": "<p>The Evergreen State</p>",
+      "link": "http://en.wikipedia.org/wiki/Washington_(state)",
+      "pin": "visible",
+      "category": "states",
+      "x": "0.13",
+      "y": "0.3"
+    }]
+  }]
+}
