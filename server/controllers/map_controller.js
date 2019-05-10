@@ -12,11 +12,6 @@ module.exports.getMaps = async function(req, res) {
 
 module.exports.addMap = async function(req, res) {
   const newMap = new Map(req.body);
-
-  newMap.mapwidth = sanitizeHtml(newMap.mapwidth);
-  newMap.mapheight = sanitizeHtml(newMap.mapheight);
-  newMap.groups = sanitizeHtml(newMap.groups);
-  newMap.levels = sanitizeHtml(newMap.levels);
   try {
     let map = await newMap.save();
     res.json({
