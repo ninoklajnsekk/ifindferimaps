@@ -7,6 +7,7 @@ var mongoose = require('mongoose');
 
 var prostoriRouter = require('./routes/prostori');
 var zaposleniRouter = require('./routes/zaposleni');
+var mapsRouter = require('./routes/maps');
 var serverConfig = require('./config');
 
 var app = express();
@@ -17,17 +18,22 @@ app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({
+  extended: false
+}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/prostori', prostoriRouter);
 app.use('/zaposleni', zaposleniRouter);
+app.use('/maps', mapsRouter);
 
 mongoose.Promise = Promise;
 
 if (process.env.NODE_ENV !== 'test') {
-  mongoose.connect(serverConfig.mongoURL, { useNewUrlParser: true }, (error) => {
+  mongoose.connect(serverConfig.mongoURL, {
+    useNewUrlParser: true
+  }, (error) => {
     if (error) {
       console.error('MongoDB error!');
       throw error;
