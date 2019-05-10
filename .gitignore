@@ -8,3 +8,5 @@ platforms/android/app/src/main/assets/www/feri\.json
 platforms/android/app/src/main/assets/www/index\.html
 
 platforms/android/app/src/main/assets/www/js/
+
+plugins/browser\.json
