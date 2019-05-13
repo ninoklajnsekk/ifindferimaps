@@ -29,10 +29,11 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-  <!--
-  TODO TU JE NUJNO POTREBNO PREVERIT KAK NASTAVIT ATRIBUTE DA BO DOVOLJEN JQUERY BO PA ŠE VSEENO VARNO
+
+  <!--TODO TU JE NUJNO POTREBNO PREVERIT KAK NASTAVIT ATRIBUTE DA BO DOVOLJEN JQUERY BO PA ŠE VSEENO VARNO
+
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
--->
+  -->
   <meta name="format-detection" content="telephone=no">
   <meta name="msapplication-tap-highlight" content="no">
   <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -47,14 +48,18 @@
   <div class="map-container">
     <div id="mapplic" class="mapplic-transparent"></div>
   </div>
+
 </body>
+<script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/hammer.min.js"></script>
 <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
 <script type="text/javascript" src="js/magnific-popup.js"></script>
 <script type="text/javascript" src="mapplic/mapplic.js"></script>
-<script type="text/javascript" src="service/maps_service.ts"></script>
+<script src="http://code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.js"></script>
+<script type="text/javascript" src="service/loadMap.js"></script>
+<!--
 <script type="text/javascript">
   $(document).ready(function() {
     var map = $('#mapplic').mapplic({
@@ -73,5 +78,6 @@
     });
   });
 </script>
+-->
 
 </html>
