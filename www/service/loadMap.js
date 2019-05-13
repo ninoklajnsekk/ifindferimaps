@@ -1,10 +1,10 @@
-var GetMapsUri = "http://localhost:8000/maps/5cd56fbe117b1433ce312e59";
+var GetMapsUri = "http://10.0.2.2:8000/maps/5cd56fbe117b1433ce312e59";
 $(document).ready(function() {
   loadContact();
 });
 
-async function loadContact() {
-  await $.ajax(GetMapsUri, {
+function loadContact() {
+  $.ajax(GetMapsUri, {
     beforeSend: function(xhr) {
       console.log('Pred');
     },
@@ -13,15 +13,16 @@ async function loadContact() {
     },
     contentType: 'application/json',
     dataType: 'json',
-    jsonp: 'callback',
+    async: true,
     type: 'GET',
+    crossDomain: true,
     error: function(xhr, ajaxOptions, thrownError) {
-      alert(xhr.status);
-      alert(xhr.responseText);
+      //alert(xhr.status);
+      //alert(xhr.responseText);
+      console.log(xhr.status);
       console.log(thrownError);
     },
-    success: function(data) {
-      //var result = data.GetContactByPhoneNumberResult;
+    success: function(data, status) {
       console.log('Rezultat iz baze');
       console.log(JSON.stringify(data));
       var map = $('#mapplic').mapplic({
