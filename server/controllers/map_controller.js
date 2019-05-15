@@ -27,9 +27,7 @@ module.exports.getMap = async function(req, res) {
     const map = await Map.findOne({
       _id: req.params.id
     });
-    res.json({
-      map
-    });
+    res.json(map);
   } catch (err) {
     return res.status(500).send(err);
   }
