@@ -9,8 +9,8 @@ var mongoose = require('mongoose');
 var prostoriRouter = require('./routes/prostori');
 var zaposleniRouter = require('./routes/zaposleni');
 var mapsRouter = require('./routes/maps');
-var homeTpl = Handlebars.compile($("#home-tpl").html());
-var employeeListTpl = Handlebars.compile($("#employee-list-tpl").html());
+//var homeTpl = Handlebars.compile($("#home-tpl").html());
+//var employeeListTpl = Handlebars.compile($("#employee-list-tpl").html());
 
 var serverConfig = require('./config');
 
@@ -67,7 +67,7 @@ if (process.env.NODE_ENV !== 'test') {
     }
   });
 }
-
+/*
 function findByName() {
   service.findByName($('.search-key').val()).done(function(employees) {
     $('.content').html(employeeListTpl(employees));
@@ -78,7 +78,7 @@ function renderHomeView() {
   $('body').html(homeTpl());
   $('.search-key').on('keyup', findByName);
 }
-
+*/
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
