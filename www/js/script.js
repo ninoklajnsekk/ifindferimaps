@@ -1,4 +1,4 @@
-/* Landing page scripts */
+/* Landing page scripts
 $(document).ready(function() {
 	$('.usage').click(function(e) {
 		e.preventDefault();
@@ -16,4 +16,15 @@ $(document).ready(function() {
 	$('.editor-window .window-mockup').click(function() {
 		$('.editor-window').slideUp(200);
 	});
+});
+*/
+
+$(document).ready(function() {
+  $.ajax({
+    url: "http://164.8.163.23:8000/maps"
+  }).then(data => {
+    console.log(JSON.stringify(data))
+  }).catch(err => {
+    console.log(JSON.stringify(err))
+  });
 });

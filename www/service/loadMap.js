@@ -1,4 +1,7 @@
+//Android
 var GetMapsUri = "http://10.0.2.2:8000/maps/5cd56fbe117b1433ce312e59";
+//browser
+//var GetMapsUri = "http://10.0.2.2:8000/maps/5cd56fbe117b1433ce312e59";
 $(document).ready(function() {
   loadContact();
 });
