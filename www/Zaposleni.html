@@ -2,7 +2,6 @@
 <html>
 
 <head>
-
   <meta name="format-detection" content="telephone=no">
   <meta name="msapplication-tap-highlight" content="no">
   <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -28,6 +27,7 @@
 <body>
   <!-- Hamburger meni-->
   <header>
+    <h1>Zaposleni</h1>
     <button class="hamburger">&#9776;</button>
     <button class="cross">&#735;</button>
   </header>
@@ -51,10 +51,11 @@
   <!-- konec menija-->
 
   <!-- content -->
-  <div class="bar bar-standard bar-header-secondary">
-    <input class='search-key' type="search" />
-  </div>
 
+  <div class="bar bar-standard bar-header-secondary">
+    <input placeholder="Išči" id="searchTextField" class='search-key' type="search" />
+  </div>
+  <hr>
 
   <div id="content" class="content"></div>
 
@@ -82,18 +83,19 @@
 
 </body>
 
-<script id="getZaposleni" type="text/javascript">
-  $.ajax({
-    url: "http://localhost:8000/zaposleni"
-  }).then(function (data) {
-    console.log(data);
-  });
+
+<script id="ustvariTabelo" type="text/x-handlebars-template">
+  {{#each this}}
+  <div display="inline-block">
+    <p class="odmikLevi">{{name}}, {{username}}</p>
+</div>
+  <div display="block"><p class="naziv odmikLevi">{{email}}</p></div>
+  <hr>
+  {{/each}}
 </script>
 
-<script id="ustvariTabelo" type="text/javascript">
-  <ul class="table-view">
-
-  </ul>
+<script id="ustvariTabeloEn" type="text/x-handlebars-template">
+  <p>{{name}}<br>{{email}}</p>
 </script>
 
 
@@ -116,27 +118,30 @@
       });
     });
 
-    var source = "<p>Hello, my name is {{name}}. I am from {{hometown}}. I have " +
-      "{{kids.length}} kids:</p>" +
-      "<ul>{{#kids}}<li>{{ime}} is {{age}}</li>{{/kids}}</ul>";
-    var template = Handlebars.compile(source);
+    $(searchTextField).on('keyup', getZaposleni)
+    getJSONZaposleni("");
 
-    var data = {
-      "ime": "Alan",
-      "hometown": "Somewhere, TX",
-      "kids": [
-        {"name": "Jimmy", "age": "12"},
-        {"name": "Sally", "age": "4"}
-      ]
-    };
-    var result = template(data);
-
-    $(getZaposleni);
-    $(content).html(result);
   });
 
+  function getZaposleni() {
+    var searchString = $(searchTextField).val();
+    getJSONZaposleni(searchString);
+  }
 
-
+  function getJSONZaposleni(ss) {
+    $.ajax({
+      url: "https://jsonplaceholder.typicode.com/users/" + ss
+    }).then(function (data) {
+      var tabela = null;
+      if (data.length > 0) {
+        tabela = Handlebars.compile($(ustvariTabelo).html());
+      } else {
+        tabela = Handlebars.compile($(ustvariTabeloEn).html());
+      }
+      var res = tabela(data);
+      $(content).html(res);
+    });
+  }
 
 
 </script>

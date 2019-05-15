@@ -1,19 +1,18 @@
 body {
 	background-color: #fff;
 	color: #666;
-	font-family: 'Open Sans', sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 	font-size: 14px;
 	margin: 0rem;
 	padding:0rem;
 }
 
 h1 {
-	color: #fff;
-	font-size: 30px;
-	font-weight: lighter;
-	line-height: 40px;
-	margin-top: 0;
-	margin-bottom: 40px;
+	color: #010101;
+	font-size: 20px;
+	font-weight: 600;
+	margin-top: 0.75rem;
+	margin-bottom: 0.75rem;
 	text-align: center;
 }
 
@@ -28,14 +27,46 @@ h3 {
 }
 
 p {
+	font-weight: 500;
+	padding:0;
+	line-height: 12px;
+	font-size:0.8rem;
+	margin-top:0;
+	margin-bottom:0;
+	color:#010101;
+}
+
+.odmikLevi{
+	margin-left:5%;
+}
+
+.naziv{
 	font-weight: 400;
-	line-height: 24px;
+	font-size: 0.6rem;
+	color:#909090;
+	line-height: 10px;
+	margin-top:0.2rem;
+	margin-bottom:0;
+	padding-top:2px;
+}
+
+.search-key{
+margin-left:15%;
+margin-bottom:1%;
+margin-top:1%;
+border-radius: 10px;
+background-color:#F2F2F2;
+border: 0px;
+padding-left:10px;
+padding-top:4px;
+padding-bottom:4px;
+width:70%;
 }
 
 hr {
 	border: none;
 	border-bottom: 1px solid #ddd;
-	margin: 40px 0;
+	margin: 8px 0;
 }
 
 a {
@@ -89,6 +120,17 @@ ul p {
 
 .inner.over {
 	margin-top: -180px;
+}
+
+#lft{
+	width:50%;
+	margin : 0;
+	float : left ;
+}
+#right{
+	width:50%;
+	margin : 0;
+	float : left;
 }
 
 /* Header */
