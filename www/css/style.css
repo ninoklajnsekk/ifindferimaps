@@ -30,9 +30,9 @@ p {
 	font-weight: 500;
 	padding:0;
 	line-height: 12px;
-	font-size:1rem;
+	font-size:1.3rem;
 	margin-top:0.9rem;
-	margin-bottom:0.3rem;
+	margin-bottom:0.4rem;
 	color:#010101;
 }
 
@@ -42,11 +42,11 @@ p {
 
 .naziv{
 	font-weight: 400;
-	font-size: 0.8rem;
+	font-size: 1.1rem;
 	color:#909090;
 	line-height: 10px;
 	margin-top:0.2rem;
-	margin-bottom:0.8rem;
+	margin-bottom:0.2rem;
 	padding-top:2px;
 }
 
@@ -415,6 +415,9 @@ section.gray:hover {
 }
 
 /**/
+.center{
+	text-align:center;
+}
 
 .hamburger{
 	background:none;

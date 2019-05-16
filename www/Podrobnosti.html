@@ -8,9 +8,9 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
   <link rel="stylesheet" type="text/css" href="mapplic/mapplic.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
     integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
   <link href="assets/ratchet/css/ratchet.css" rel="stylesheet">
   <link href="assets/css/styles.css" rel="stylesheet">
@@ -61,44 +61,29 @@
 
   <div id="content" class="content"></div>
 
-
-  <!-- 
-  <script id="employee-list-tpl" type="text/template">
-    <ul class="table-view">
-        {{#each this}}
-        <li class="table-view-cell media">
-          <a href="#employees/{{ id }}">
-              <img class="media-object pull-left" src="assets/pics/{{pic}}">
-              <div class="media-body">
-                  {{firstName}} {{lastName}}
-                  <p>{{title}}</p>
-              </div>
-          </a>
-        </li>
-        {{/each}}
-    </ul>
-  </script>
-  LIST-->
-
-
-
-
 </body>
 
 
 <script id="ustvariTabelo" type="text/x-handlebars-template">
   <!--SPREMEMBA ZA BAZO-->
   {{#each this}}
-  <div id="zaposlen" display="inline-block">
+  <div id="zaposlen" display="inline-block" 
+  onclick="alert('{{this.name}} {{this.email}} {{this.phone}} {{this.website}}');window.close();">
   
-    <p class="odmikLevi ime">{{name}}, {{username}}</p>
+    <p class="odmikLevi">{{name}}, {{username}}</p>
     <p class="naziv odmikLevi"><i class="far fa-paper-plane"></i><a href="mailto:{{email}}">  {{email}}</p></a>
     <p class="naziv odmikLevi"><i class="fas fa-phone"></i>  {{phone}}</p>
     <p class="naziv odmikLevi"><i class="far fa-map"></i>  {{website}}</p>
     <p id="demo"></p>
-    <hr>
   </div>
+
   {{/each}}
+</script>
+
+<script>
+  document.getElementById("zaposlen").addEventListener("click", function () {
+    document.getElementById("demo").innerHTML = "{{this.name}} ";
+  });
 </script>
 
 <script id="ustvariTabeloEn" type="text/x-handlebars-template">
@@ -109,6 +94,7 @@
     <p class="naziv odmikLevi"><i class="far fa-map"></i>  {{website}}</p>
   </div>
 </script>
+
 
 <script type="text/javascript">
   $(document).ready(function () {
@@ -151,8 +137,6 @@
       }
       var res = tabela(data);
       $(content).html(res);
-    }).catch(function (data) {
-      $(content).html("<div></div>");
     });
   }
 
