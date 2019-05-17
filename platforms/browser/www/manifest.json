@@ -1,42 +1,11 @@
 {
   "background_color": "#FFF",
   "display": "standalone",
-  "name": "HelloWorld",
-  "short_name": "HelloWorld",
+  "name": "FeriMaps",
+  "short_name": "FeriMaps",
   "version": "si.um.feri.ifindferimaps",
   "description": "A sample Apache Cordova application that responds to the deviceready event.",
   "author": "Apache Cordova Team",
-  "icons": [
-    {
-      "src": "www\\img\\logo.png",
-      "type": "image/png",
-      "sizes": "undefinedxundefined"
-    },
-    {
-      "src": "www\\img\\logo.png",
-      "type": "image/png",
-      "sizes": "undefinedxundefined"
-    },
-    {
-      "src": "www\\img\\logo.png",
-      "type": "image/png",
-      "sizes": "undefinedxundefined"
-    },
-    {
-      "src": "www\\img\\logo.png",
-      "type": "image/png",
-      "sizes": "undefinedxundefined"
-    },
-    {
-      "src": "www\\img\\logo.png",
-      "type": "image/png",
-      "sizes": "undefinedxundefined"
-    },
-    {
-      "src": "www\\img\\logo.png",
-      "type": "image/png",
-      "sizes": "undefinedxundefined"
-    }
-  ],
+  "icons": [],
   "start_url": "index.html"
 }

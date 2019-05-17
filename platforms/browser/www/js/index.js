@@ -29,6 +29,7 @@ var app = {
   // Bind any cordova events here. Common events are:
   // 'pause', 'resume', etc.
   onDeviceReady: function() {
+    initializeNFC();
     this.receivedEvent('deviceready');
   },
 
@@ -44,5 +45,21 @@ var app = {
     console.log('Received Event: ' + id);
   }
 };
+
+function initializeNFC(){
+    
+  nfc.addNdefListener (
+      function (nfcEvent) {
+          nfc_callback(nfcEvent)
+      },
+      function () { // success callback
+          //alert("Waiting for NDEF tag");
+      },
+      function (error) { // error callback
+          //alert("Error adding NDEF listener " + JSON.stringify(error));
+      }
+  );
+}
+
 
 app.initialize();

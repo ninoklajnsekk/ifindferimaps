@@ -3,10 +3,10 @@ var GetMapsUri = "http://10.0.2.2:8000/maps/5cdf1c220205d43f9153b287";
 //browser
 //var GetMapsUri = "http://localhost:8000/maps/5cdf1c220205d43f9153b287";
 $(document).ready(function() {
-  loadContact();
+  loadMap();
 });
 
-function loadContact() {
+function loadMap() {
   $.ajax(GetMapsUri, {
     beforeSend: function(xhr) {
       console.log('Pred');

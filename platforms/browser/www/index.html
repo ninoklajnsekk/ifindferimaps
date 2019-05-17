@@ -16,8 +16,7 @@
 
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
 -->
-  <meta http-equiv="Content-Security-Policy"
-    content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'" />
   <meta name="format-detection" content="telephone=no">
   <meta name="msapplication-tap-highlight" content="no">
   <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -59,7 +58,7 @@
   </div>
 
 </body>
-<script type="text/javascript" src="js/index.js"></script>
+
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/menu.js"></script>
 <script type="text/javascript" src="js/hammer.min.js"></script>
@@ -68,38 +67,21 @@
 <script type="text/javascript" src="js/magnific-popup.js"></script>
 <script type="text/javascript" src="mapplic/mapplic.js"></script>
 <script type="text/javascript" src="service/loadMap.js"></script>
-
-<script type="text/javascript">
-  $(document).ready(function () {
-    var map = $('#mapplic').mapplic({
-      source: 'feri.json',
-      height: 540,
-      sidebar: true,
-      lightbox: true,
-      fillcolor: '#495360',
-      closezoomout: true,
-      minimap: false,
-      thumbholder: true,
-      fullscreen: true,
-      maxscale: 1,
-      landmark: null,
-      developer: false,
-    });
-  });
-</script>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
 
 <script type="text/javascript">
   $(".cross").hide();
   $(".menu").hide();
-  $(".hamburger").click(function () {
-    $(".menu").slideToggle("slow", function () {
+  $(".hamburger").click(function() {
+    $(".menu").slideToggle("slow", function() {
       $(".hamburger").hide();
       $(".cross").show();
     });
   });
 
-  $(".cross").click(function () {
-    $(".menu").slideToggle("slow", function () {
+  $(".cross").click(function() {
+    $(".menu").slideToggle("slow", function() {
       $(".cross").hide();
       $(".hamburger").show();
     });
