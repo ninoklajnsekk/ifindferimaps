@@ -3,12 +3,38 @@
  * Version 5.0.1
  * https://www.mapplic.com/
  */
+var global_var ="";
+var current_pos = "";
+function nfc_callback(nfcEvent){
+	var tag = nfcEvent.tag,ndefMessage = tag.ndefMessage;
+	var jsonPayload = JSON.parse(nfc.bytesToString(ndefMessage[0].payload).substring(3));
+
+	if(jsonPayload['id'])
+		currentLocation(jsonPayload['id']);
+	else alert('NFC tag could not be read!');
+}
+
+function currentLocation(id){
+
+	
+	var locations = global_var.l
+	 for(var l in locations) {
+		var location = locations[l];
+		if(location.id === id){
+			current_pos = location.id;
+			global_var.showLocation(location.id,1);
+			//mark_path();
+		}
+	}
+
+}
+
 
 ;(function($) {
 	"use strict";
 
 	var Mapplic = function(element) {
-
+		global_var = this;
 		var self = this;
 
 		self.o = {

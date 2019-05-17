@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
+  <link rel="stylesheet" type="text/css" href="mapplic/mapplic.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+  <link href="assets/ratchet/css/ratchet.css" rel="stylesheet">
+  <link href="assets/css/styles.css" rel="stylesheet">
+
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/menu.js"></script>
+  <script type="text/javascript" src="js/hammer.min.js"></script>
+  <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+  <script type="text/javascript" src="js/magnific-popup.js"></script>
+  <script type="text/javascript" src="js/handlebars.js"></script>
+
+  <title>iFindFeri</title>
+</head>
+
+<body>
+  <!-- Hamburger meni-->
+  <header>
+    <h1>Zaposleni</h1>
+    <button class="hamburger">&#9776;</button>
+    <button class="cross">&#735;</button>
+  </header>
+
+  <div class="menu">
+    <ul>
+      <a href="index.html">
+        <li>Domov</li>
+      </a>
+      <a href="Zaposleni.html">
+        <li>Zaposleni</li>
+      </a>
+      <a href="Podrobnosti.html">
+        <li>Podrobnosti</li>
+      </a>
+      <a href="#">
+        <li>Party gumbek</li>
+      </a>
+    </ul>
+  </div>
+  <!-- konec menija-->
+
+  <!-- content -->
+
+  <div class="bar bar-standard bar-header-secondary">
+    <input placeholder="Išči" id="searchTextField" class='search-key' type="search" />
+  </div>
+  <hr>
+
+  <div id="content" class="content"></div>
+
+
+  <!-- 
+  <script id="employee-list-tpl" type="text/template">
+    <ul class="table-view">
+        {{#each this}}
+        <li class="table-view-cell media">
+          <a href="#employees/{{ id }}">
+              <img class="media-object pull-left" src="assets/pics/{{pic}}">
+              <div class="media-body">
+                  {{firstName}} {{lastName}}
+                  <p>{{title}}</p>
+              </div>
+          </a>
+        </li>
+        {{/each}}
+    </ul>
+  </script>
+  LIST-->
+
+
+
+
+</body>
+
+
+<script id="ustvariTabelo" type="text/x-handlebars-template">
+  <!--SPREMEMBA ZA BAZO-->
+  {{#each this}}
+  <div id="zaposlen" display="inline-block">
+  
+    <p class="odmikLevi ime">{{name}}, {{username}}</p>
+    <p class="naziv odmikLevi"><i class="far fa-paper-plane"></i><a href="mailto:{{email}}">  {{email}}</p></a>
+    <p class="naziv odmikLevi"><i class="fas fa-phone"></i>  {{phone}}</p>
+    <p class="naziv odmikLevi"><i class="far fa-map"></i>  {{website}}</p>
+    <p id="demo"></p>
+    <hr>
+  </div>
+  {{/each}}
+</script>
+
+<script id="ustvariTabeloEn" type="text/x-handlebars-template">
+  <div id="zaposlen" display="inline-block" onclick="alert('{{this.name}}');window.close();">
+    <p class="odmikLevi">{{name}}, {{username}}</p>
+    <p class="naziv odmikLevi"><i class="far fa-paper-plane"></i><a href="mailto:{{email}}">  {{email}}</p></a>
+    <p class="naziv odmikLevi"><i class="fas fa-phone"></i>  {{phone}}</p>
+    <p class="naziv odmikLevi"><i class="far fa-map"></i>  {{website}}</p>
+  </div>
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+
+    $(".cross").hide();
+    $(".menu").hide();
+    $(".hamburger").click(function () {
+      $(".menu").slideToggle("slow", function () {
+        $(".hamburger").hide();
+        $(".cross").show();
+      });
+    });
+
+    $(".cross").click(function () {
+      $(".menu").slideToggle("slow", function () {
+        $(".cross").hide();
+        $(".hamburger").show();
+      });
+    });
+
+    $(searchTextField).on('keyup', getZaposleni)
+    getJSONZaposleni("");
+
+  });
+
+  function getZaposleni() {
+    var searchString = $(searchTextField).val();
+    getJSONZaposleni(searchString);
+  }
+
+  function getJSONZaposleni(ss) {
+    $.ajax({
+      url: "https://jsonplaceholder.typicode.com/users/" + ss
+    }).then(function (data) {
+      var tabela = null;
+      if (data.length > 0) {
+        tabela = Handlebars.compile($(ustvariTabelo).html());
+      } else {
+        tabela = Handlebars.compile($(ustvariTabeloEn).html());
+      }
+      var res = tabela(data);
+      $(content).html(res);
+    }).catch(function (data) {
+      $(content).html("<div></div>");
+    });
+  }
+
+
+</script>
+
+<!-- WHAT TO DO
+  1. Popravit CORS
+  2. ko dobis podatke v function(data) potem klices da se ti ustvari nova tabela z novimi podatki
+    $(content).html($(ustvariTabelo));
+    
+    podatki so v stilu data.id kjer je id = ime tvojega atributa, npr.: data.ime, data.priimek,...
+    
+
+  3. naredis callback (prozilec) na search textfieldu da ko kliknes enter 
+    poisces iz baze (spet prozis funkcijo getZaposleni z $(getZaposleni); ), 
+    samo da se das zraven text ki si ga vpisala v search
+  4. spet po updejtas svojo tabelo z novimi podatki
+    $(content).html($(ustvariTabelo));
+  -->
+
+
+</html>
