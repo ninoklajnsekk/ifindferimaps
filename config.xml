@@ -8,14 +8,14 @@
         Apache Cordova Team
     </author>
     <content src="index.html" />
-    <icon src="www\img\logo.png" />
+    <!--<icon src="www\img\logo.png" />-->
 
-    <!-- application icons for Android -->
+    <!-- application icons for Android
     <icon src="www\img\logo.png" platform="android" qualifier="ldpi" />
     <icon src="www\img\logo.png" platform="android" qualifier="mdpi" />
     <icon src="www\img\logo.png" platform="android" qualifier="hdpi" />
     <icon src="www\img\logo.png" platform="android" qualifier="xhdpi" />
-    <icon src="www\img\logo.png" platform="android" qualifier="xxhdpi" />
+    <icon src="www\img\logo.png" platform="android" qualifier="xxhdpi" />-->
 
     <preference name="prerendered-icon" value="false" />
     <access origin="*"/>
