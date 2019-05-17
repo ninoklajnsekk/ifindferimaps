@@ -4,10 +4,13 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
+<<<<<<< Updated upstream
     <feature name="NfcPlugin">
         <param name="android-package" value="com.chariotsolutions.nfc.plugin.NfcPlugin" />
         <param name="onload" value="true" />
     </feature>
+=======
+>>>>>>> Stashed changes
     <name>FeriMaps</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
