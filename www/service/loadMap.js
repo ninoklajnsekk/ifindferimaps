@@ -1,7 +1,7 @@
 //Android
-var GetMapsUri = "http://10.0.2.2:8000/maps/5cdf1c220205d43f9153b287";
+//var GetMapsUri = "http://10.0.2.2:8000/maps/5cdf1c220205d43f9153b287";
 //browser
-//var GetMapsUri = "http://localhost:8000/maps/5cdf1c220205d43f9153b287";
+var GetMapsUri = "http://localhost:8000/maps/5cdf1c220205d43f9153b287";
 $(document).ready(function() {
   loadMap();
 });
@@ -40,7 +40,7 @@ function loadMap() {
         fullscreen: true,
         maxscale: 1,
         landmark: null,
-        developer: false,
+        developer: true,
       });
     }
   });
