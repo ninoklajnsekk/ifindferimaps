@@ -1,0 +1,133 @@
+{
+  "mapwidth": "960",
+  "mapheight": "600",
+  "groups": [{
+      "id": "Predavalnica",
+      "title": "Predavalnica",
+      "about": "Predavalnice",
+      "color": "#80CBC4",
+      "legend": "true",
+      "toggle": "true",
+      "switchoff": "true",
+      "hide": "false"
+    },
+    {
+      "id": "Kabinet",
+      "title": "Kabinet",
+      "about": "Kabineti",
+      "color": "#81D4FA",
+      "legend": "true",
+      "toggle": "true",
+      "switchoff": "true",
+      "hide": "false"
+    },
+    {
+      "id": "Laboratorij",
+      "title": "Laboratorij",
+      "about": "laboratoriji",
+      "color": "#9FA8DA",
+      "legend": "true",
+      "toggle": "true",
+      "switchoff": "true",
+      "hide": "false"
+    },
+    {
+      "id": "Stranišče",
+      "title": "Stranišče",
+      "about": "Stranišča",
+      "color": "#A5D6A7",
+      "legend": "true",
+      "toggle": "true",
+      "switchoff": "true",
+      "hide": "false"
+    },
+    {
+      "id": "Drugo",
+      "title": "Drugo",
+      "about": "ostalo",
+      "color": "#E6EE9C",
+      "legend": "true",
+      "toggle": "true",
+      "switchoff": "true",
+      "hide": "false"
+    }
+  ],
+  "levels": [{
+    "id": "G2_pritlicje",
+    "title": "G2_pritlicje",
+    "map": "maps/feri.svg",
+    "locations": [{
+        "id": "Alfa",
+        "title": "G2-P1-Alfa",
+        "pin": "hidden",
+        "category": "Predavalnica",
+        "x": "0.13",
+        "y": "0.26"
+      },
+      {
+        "id": "Beta",
+        "title": "G2-P2-Beta",
+        "pin": "hidden",
+        "category": "Predavalnica",
+        "x": "0.113",
+        "y": "0.709"
+      },
+      {
+        "id": "G2-P01",
+        "title": "G2-P01",
+        "pin": "hidden",
+        "category": "Predavalnica",
+        "x": "0.645",
+        "y": "0.240"
+      },
+      {
+        "id": "G2-P02",
+        "title": "G2-P02",
+        "pin": "hidden",
+        "category": "Predavalnica",
+        "x": "0.466",
+        "y": "0.228"
+      },
+      {
+        "id": "G2-P03",
+        "title": "G2-P03",
+        "pin": "hidden",
+        "category": "Predavalnica",
+        "x": "0.326",
+        "y": "0.230"
+      },
+      {
+        "id": "G2-P04",
+        "title": "G2-P04",
+        "pin": "hidden",
+        "category": "Predavalnica",
+        "x": "0.653",
+        "y": "0.771"
+      },
+      {
+        "id": "G2-P05",
+        "title": "G2-P05",
+        "pin": "hidden",
+        "category": "Predavalnica",
+        "x": "0.505",
+        "y": "0.782"
+      },
+      {
+        "id": "G2-P06",
+        "title": "G2-P06",
+        "pin": "hidden",
+        "category": "Predavalnica",
+        "x": "0.370",
+        "y": "0.788"
+      },
+      {
+        "id": "Referat",
+        "title": "Referat",
+        "pin": "hidden",
+        "category": "Drugo",
+        "x": "0.901",
+        "y": "0.207"
+      }
+    ]
+  }]
+}
