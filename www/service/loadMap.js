@@ -40,7 +40,7 @@ function loadMap() {
         fullscreen: true,
         maxscale: 1,
         landmark: null,
-        developer: false,
+        developer: true,
       });
     }
   });
