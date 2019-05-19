@@ -1,4 +1,4 @@
-const sanitizeHtml = require('sanitize-html')
+const Joi = require('@hapi/joi');
 const Map = require('../models/map');
 
 module.exports.getMaps = async function(req, res) {
@@ -12,14 +12,29 @@ module.exports.getMaps = async function(req, res) {
 
 module.exports.addMap = async function(req, res) {
   const newMap = new Map(req.body);
-  try {
-    let map = await newMap.save();
-    res.json({
-      nov_map: map
-    });
-  } catch (err) {
-    res.status(500).send(err);
-  }
+  //TODO spremeni
+  const schema = Joi.object().keys({
+    mapwidth: Joi.string().alphanum().min(3).max(10).required(),
+    mapheight: Joi.string().regex(/^[a-zA-Z0-9]{3,30}$/),
+    groups: [Joi.string(), Joi.number()],
+    levels: Joi.string().alphanum().min(3).max(30).required()
+  });
+
+  const result = Joi.validate({
+    mapwidth: newMap.mapwidth,
+    mapheight: newMap.mapheight,
+    groups: newMap.groups,
+    levels: newMap.levels
+  }, schema, async function(err, value) {
+    if (err === null) {
+      let map = await newMap.save();
+      res.json({
+        nov_map: map
+      });
+    } else {
+      res.status(500).send(err);
+    }
+  });
 }
 
 module.exports.getMap = async function(req, res) {
