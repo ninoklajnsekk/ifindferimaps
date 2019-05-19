@@ -1,5 +1,5 @@
 //Android
-var GetMapsUri = "http://10.0.2.2:8000/maps/5cdf1c220205d43f9153b287";
+var GetMapsUri = "http://10.0.2.2:8000/maps/5cdfe3429598274f2ccb2827";
 //browser
 //var GetMapsUri = "http://localhost:8000/maps/5cdf1c220205d43f9153b287";
 $(document).ready(function() {

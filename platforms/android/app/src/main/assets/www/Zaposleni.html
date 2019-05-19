@@ -10,18 +10,22 @@
   <link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
   <link rel="stylesheet" type="text/css" href="mapplic/mapplic.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
   <link href="assets/ratchet/css/ratchet.css" rel="stylesheet">
   <link href="assets/css/styles.css" rel="stylesheet">
 
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/menu.js"></script>
+  <script type="text/javascript" src="js/translations.js"></script>
   <script type="text/javascript" src="js/hammer.min.js"></script>
   <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
   <script type="text/javascript" src="js/script.js"></script>
   <script type="text/javascript" src="js/magnific-popup.js"></script>
   <script type="text/javascript" src="js/handlebars.js"></script>
+  <script src="http://www.localeplanet.com/api/auto/icu.js"></script>
+  <script src="http://www.localeplanet.com/api/translate.js"></script>
 
   <title>iFindFeri</title>
 </head>
@@ -29,7 +33,9 @@
 <body>
   <!-- Hamburger meni-->
   <header>
-    <h1>Zaposleni</h1>
+    <h1 id="zaposleniH1" class="translate">
+      <script>languageChanged();</script>
+    </h1>
     <button class="hamburger">&#9776;</button>
     <button class="cross">&#735;</button>
   </header>
@@ -37,17 +43,20 @@
   <div class="menu">
     <ul>
       <a href="index.html">
-        <li>Domov</li>
+        <li id="domov" class="translate">Domov</li>
       </a>
       <a href="Zaposleni.html">
-        <li>Zaposleni</li>
+        <li id="zaposleni" class="translate">Zaposleni</li>
       </a>
       <a href="Podrobnosti.html">
-        <li>Podrobnosti</li>
+        <li id="podrobnosti" class="translate">Podrobnosti</li>
       </a>
       <a href="#">
-        <li>Party gumbek</li>
+        <li><button onclick="setEnglish()"> Angleško</button></li>
       </a>
+      <script type="text/javascript">
+        __('<p>Hello World!</p>');
+      </script>
     </ul>
   </div>
   <!-- konec menija-->
@@ -60,27 +69,6 @@
   <hr>
 
   <div id="content" class="content"></div>
-
-
-  <!--
-  <script id="employee-list-tpl" type="text/template">
-    <ul class="table-view">
-        {{#each this}}
-        <li class="table-view-cell media">
-          <a href="#employees/{{ id }}">
-              <img class="media-object pull-left" src="assets/pics/{{pic}}">
-              <div class="media-body">
-                  {{firstName}} {{lastName}}
-                  <p>{{title}}</p>
-              </div>
-          </a>
-        </li>
-        {{/each}}
-    </ul>
-  </script>
-  LIST-->
-
-
 
 
 </body>
@@ -159,20 +147,6 @@
   }
 </script>
 -->
-<!-- WHAT TO DO
-  1. Popravit CORS
-  2. ko dobis podatke v function(data) potem klices da se ti ustvari nova tabela z novimi podatki
-    $(content).html($(ustvariTabelo));
-
-    podatki so v stilu data.id kjer je id = ime tvojega atributa, npr.: data.ime, data.priimek,...
-
-
-  3. naredis callback (prozilec) na search textfieldu da ko kliknes enter
-    poisces iz baze (spet prozis funkcijo getZaposleni z $(getZaposleni); ),
-    samo da se das zraven text ki si ga vpisala v search
-  4. spet po updejtas svojo tabelo z novimi podatki
-    $(content).html($(ustvariTabelo));
-  -->
 
 
 </html>

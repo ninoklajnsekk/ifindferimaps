@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
+  <link rel="stylesheet" type="text/css" href="mapplic/mapplic.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  <link href="assets/ratchet/css/ratchet.css" rel="stylesheet">
+  <link href="assets/css/styles.css" rel="stylesheet">
+
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/translations.js"></script>
+  <script type="text/javascript" src="js/hammer.min.js"></script>
+  <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+  <script type="text/javascript" src="js/magnific-popup.js"></script>
+  <script type="text/javascript" src="js/handlebars.js"></script>
+
+  <title>iFindFeri</title>
+</head>
+
+<body onload="isLangStored()">
+  <!-- Hamburger meni-->
+  <header>
+    <h1 id="helpH1" class="translate"></h1>
+    <button class="hamburger">&#9776;</button>
+    <button class="cross">&#735;</button>
+  </header>
+
+  <div class="menu">
+    <ul>
+      <a href="index.html">
+        <li id="domov" class="translate"></li>
+      </a>
+      <a href="Zaposleni.html">
+        <li id="zaposleni" class="translate"></li>
+      </a>
+      <a href="Help.html">
+        <li id="help" class="translate"></li>
+      </a>
+      <li>
+        <button id="slovensko" onclick="setSlovene()"> </button>
+        <button id="anglesko" onclick="setEnglish()"></button>
+      </li>
+    </ul>
+  </div>
+  <!-- konec menija-->
+
+  <!-- content -->
+
+  <hr>
+  <div id="content" class="content">
+    <p>Pomoč za NFC</p>
+  </div>
+
+</body>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+
+    $(".cross").hide();
+    $(".menu").hide();
+    $(".hamburger").click(function () {
+      $(".menu").slideToggle("slow", function () {
+        $(".hamburger").hide();
+        $(".cross").show();
+      });
+    });
+
+    $(".cross").click(function () {
+      $(".menu").slideToggle("slow", function () {
+        $(".cross").hide();
+        $(".hamburger").show();
+      });
+    });
+  });
+
+
+</script>
+
+</html>
