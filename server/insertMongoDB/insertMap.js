@@ -82,6 +82,7 @@ MongoClient.connect(url, function(err, db) {
         "id": "G2_pritlicje",
         "title": "G2 pritličje",
         "map": "maps/map0.svg",
+        "show": "true",
         "locations": [{
             "id": "alfa",
             "title": "G2-P1-Alfa",
@@ -487,6 +488,546 @@ MongoClient.connect(url, function(err, db) {
             "category": "Predavalnica",
             "x": "0.677",
             "y": "0.369"
+          }
+        ]
+      },
+      {
+        "id": "G2_2_nadstropje",
+        "title": "G2 2 nadstropje",
+        "map": "maps/map2.svg",
+        "locations": [{
+            "id": "nadstopje2_x5F_4",
+            "title": "Stopnišče",
+            "pin": "hidden",
+            "category": "Stopnišče",
+            "x": "0.758",
+            "y": "0.778"
+          },
+          {
+            "id": "nadstopje2_x5F_3",
+            "title": "Stopnišče",
+            "pin": "hidden",
+            "category": "Stopnišče",
+            "x": "0.249",
+            "y": "0.769"
+          },
+          {
+            "id": "nadstopje2_x5F_2",
+            "title": "Stopnišče",
+            "pin": "hidden",
+            "category": "Stopnišče",
+            "x": "0.251",
+            "y": "0.338"
+          },
+          {
+            "id": "nadstopje2_x5F_1",
+            "title": "Stopnišče",
+            "pin": "hidden",
+            "category": "Stopnišče",
+            "x": "0.752",
+            "y": "0.326"
+          },
+          {
+            "id": "LiftN-2",
+            "title": "Dvigalo",
+            "pin": "hidden",
+            "category": "Dvigalo",
+            "x": "0.259",
+            "y": "0.685"
+          },
+          {
+            "id": "LiftS2-2",
+            "title": "Dvigalo",
+            "pin": "hidden",
+            "category": "Dvigalo",
+            "x": "0.850",
+            "y": "0.835"
+          },
+          {
+            "id": "LiftS1-2",
+            "title": "Dvigalo",
+            "pin": "hidden",
+            "category": "Dvigalo",
+            "x": "0.881",
+            "y": "0.826"
+          },
+          {
+            "id": "Žensko_stranišče",
+            "title": "Žensko stranišče",
+            "pin": "hidden",
+            "category": "Stranišče",
+            "x": "0.252",
+            "y": "0.156"
+          },
+          {
+            "id": "Moško_stranišče",
+            "title": "Moško stranišče",
+            "pin": "hidden",
+            "category": "Stranišče",
+            "x": "0.303",
+            "y": "0.171"
+          },
+          {
+            "id": "Herz",
+            "title": "Herz",
+            "pin": "hidden",
+            "category": "Predavalnica",
+            "x": "0.878",
+            "y": "0.232"
+          },
+          {
+            "id": "Tesla",
+            "title": "Tesla",
+            "pin": "hidden",
+            "category": "Laboratorij",
+            "x": "0.650",
+            "y": "0.805"
+          },
+          {
+            "id": "Weber",
+            "title": "Weber",
+            "pin": "hidden",
+            "category": "Laboratorij",
+            "x": "0.501",
+            "y": "0.802"
+          },
+          {
+            "id": "Farad",
+            "title": "Farad",
+            "pin": "hidden",
+            "category": "Laboratorij",
+            "x": "0.364",
+            "y": "0.800"
+          },
+          {
+            "id": "_x32_N35",
+            "title": "N35",
+            "pin": "hidden",
+            "category": "Kabinet",
+            "x": "0.348",
+            "y": "0.173"
+          },
+          {
+            "id": "_x32_N36",
+            "title": "N36",
+            "pin": "hidden",
+            "category": "Kabinet",
+            "x": "0.393",
+            "y": "0.173"
+          },
+          {
+            "id": "_x32_N37",
+            "title": "N37",
+            "pin": "hidden",
+            "category": "Kabinet",
+            "x": "0.435",
+            "y": "0.173"
+          },
+          {
+            "id": "_x32_N38",
+            "title": "N38",
+            "pin": "hidden",
+            "category": "Kabinet",
+            "x": "0.481",
+            "y": "0.173"
+          },
+          {
+            "id": "_x32_N39",
+            "title": "N39",
+            "pin": "hidden",
+            "category": "Kabinet",
+            "x": "0.526",
+            "y": "0.173"
+          },
+          {
+            "id": "_x32_N40",
+            "title": "N40",
+            "pin": "hidden",
+            "category": "Kabinet",
+            "x": "0.585",
+            "y": "0.173"
+          },
+          {
+            "id": "Moško_stranišče_zaposleni",
+            "title": "Moško stranišče zaposleni",
+            "pin": "hidden",
+            "category": "Stranišče",
+            "x": "0.694",
+            "y": "0.154"
+          },
+          {
+            "id": "Žensko_stranišče_zaposleni",
+            "title": "Žensko stranišče zaposleni",
+            "pin": "hidden",
+            "category": "Stranišče",
+            "x": "0.758",
+            "y": "0.178"
+          },
+          {
+            "id": "Stranišče_za_invalide",
+            "title": "Stranišče za invalide",
+            "pin": "hidden",
+            "category": "Stranišče",
+            "x": "0.758",
+            "y": "0.225"
+          },
+          {
+            "id": "_x32_N28",
+            "title": "N28",
+            "pin": "hidden",
+            "category": "Kabinet",
+            "x": "0.304",
+            "y": "0.369"
+          },
+          {
+            "id": "_x32_N29",
+            "title": "N29",
+            "pin": "hidden",
+            "category": "Kabinet",
+            "x": "0.345",
+            "y": "0.369"
+          },
+          {
+            "id": "_x32_N30",
+            "title": "N30",
+            "pin": "hidden",
+            "category": "Kabinet",
+            "x": "0.391",
+            "y": "0.369"
+          },
+          {
+            "id": "_x32_N31",
+            "title": "N31",
+            "pin": "hidden",
+            "category": "Kabinet",
+            "x": "0.440",
+            "y": "0.369"
+          },
+          {
+            "id": "_x32_N32",
+            "title": "N32",
+            "pin": "hidden",
+            "category": "Kabinet",
+            "x": "0.481",
+            "y": "0.369"
+          },
+          {
+            "id": "_x32_N33",
+            "title": "N33",
+            "pin": "hidden",
+            "category": "Kabinet",
+            "x": "0.526",
+            "y": "0.369"
+          },
+          {
+            "id": "_x32_N34",
+            "title": "N34",
+            "pin": "hidden",
+            "category": "Kabinet",
+            "x": "0.572",
+            "y": "0.369"
+          },
+          {
+            "id": "Seminarska_soba",
+            "title": "Seminarska soba",
+            "pin": "hidden",
+            "category": "Predavalnica",
+            "x": "0.677",
+            "y": "0.369"
+          },
+          {
+            "id": "gama",
+            "title": "G2-P3-GAMA",
+            "pin": "hidden",
+            "category": "Predavalnica",
+            "x": "0.13",
+            "y": "0.26"
+          },
+          {
+            "id": "delta",
+            "title": "G2-P4-DELTA",
+            "pin": "hidden",
+            "category": "Predavalnica",
+            "x": "0.113",
+            "y": "0.709"
+          }
+        ]
+      },
+      {
+        "id": "G2_3_nadstropje",
+        "title": "G2 3 nadstropje",
+        "map": "maps/map3.svg",
+        "locations": [{
+            "id": "nadstopje3_x5F_4",
+            "title": "Stopnišče",
+            "pin": "hidden",
+            "category": "Stopnišče",
+            "x": "0.758",
+            "y": "0.778"
+          },
+          {
+            "id": "nadstopje3_x5F_3",
+            "title": "Stopnišče",
+            "pin": "hidden",
+            "category": "Stopnišče",
+            "x": "0.249",
+            "y": "0.769"
+          },
+          {
+            "id": "nadstopje3_x5F_2",
+            "title": "Stopnišče",
+            "pin": "hidden",
+            "category": "Stopnišče",
+            "x": "0.251",
+            "y": "0.338"
+          },
+          {
+            "id": "nadstopje3_x5F_1",
+            "title": "Stopnišče",
+            "pin": "hidden",
+            "category": "Stopnišče",
+            "x": "0.752",
+            "y": "0.326"
+          },
+          {
+            "id": "LiftN-3",
+            "title": "Dvigalo",
+            "pin": "hidden",
+            "category": "Dvigalo",
+            "x": "0.259",
+            "y": "0.685"
+          },
+          {
+            "id": "LiftS-3",
+            "title": "Dvigalo",
+            "pin": "hidden",
+            "category": "Dvigalo",
+            "x": "0.850",
+            "y": "0.835"
+          },
+          {
+            "id": "LiftS1-3",
+            "title": "Dvigalo",
+            "pin": "hidden",
+            "category": "Dvigalo",
+            "x": "0.881",
+            "y": "0.826"
+          },
+          {
+            "id": "Žensko_stranišče",
+            "title": "Žensko stranišče",
+            "pin": "hidden",
+            "category": "Stranišče",
+            "x": "0.252",
+            "y": "0.156"
+          },
+          {
+            "id": "Moško_stranišče",
+            "title": "Moško stranišče",
+            "pin": "hidden",
+            "category": "Stranišče",
+            "x": "0.303",
+            "y": "0.171"
+          },
+          {
+            "id": "Senatna_soba",
+            "title": "Senatna soba",
+            "pin": "hidden",
+            "category": "Drugo",
+            "x": "0.878",
+            "y": "0.232"
+          },
+          {
+            "id": "Lumen",
+            "title": "Lumen",
+            "pin": "hidden",
+            "category": "Laboratorij",
+            "x": "0.650",
+            "y": "0.805"
+          },
+          {
+            "id": "Becquel",
+            "title": "Becquel",
+            "pin": "hidden",
+            "category": "Laboratorij",
+            "x": "0.501",
+            "y": "0.802"
+          },
+          {
+            "id": "Henry",
+            "title": "Henry",
+            "pin": "hidden",
+            "category": "Laboratorij",
+            "x": "0.364",
+            "y": "0.800"
+          },
+          {
+            "id": "_x33_N48",
+            "title": "N48",
+            "pin": "hidden",
+            "category": "Kabinet",
+            "x": "0.348",
+            "y": "0.173"
+          },
+          {
+            "id": "_x33_N49",
+            "title": "N49",
+            "pin": "hidden",
+            "category": "Kabinet",
+            "x": "0.393",
+            "y": "0.173"
+          },
+          {
+            "id": "_x33_N50",
+            "title": "N50",
+            "pin": "hidden",
+            "category": "Kabinet",
+            "x": "0.435",
+            "y": "0.173"
+          },
+          {
+            "id": "_x33_N51",
+            "title": "N51",
+            "pin": "hidden",
+            "category": "Kabinet",
+            "x": "0.481",
+            "y": "0.173"
+          },
+          {
+            "id": "_x33_N52",
+            "title": "N52",
+            "pin": "hidden",
+            "category": "Kabinet",
+            "x": "0.526",
+            "y": "0.173"
+          },
+          {
+            "id": "_x33_N53",
+            "title": "N53",
+            "pin": "hidden",
+            "category": "Kabinet",
+            "x": "0.585",
+            "y": "0.173"
+          },
+          {
+            "id": "Moško_stranišče_zaposleni",
+            "title": "Moško stranišče zaposleni",
+            "pin": "hidden",
+            "category": "Stranišče",
+            "x": "0.694",
+            "y": "0.154"
+          },
+          {
+            "id": "Žensko_stranišče_zaposleni",
+            "title": "Žensko stranišče zaposleni",
+            "pin": "hidden",
+            "category": "Stranišče",
+            "x": "0.758",
+            "y": "0.178"
+          },
+          {
+            "id": "Stranišče_za_invalide",
+            "title": "Stranišče za invalide",
+            "pin": "hidden",
+            "category": "Stranišče",
+            "x": "0.758",
+            "y": "0.225"
+          },
+          {
+            "id": "_x32_N41",
+            "title": "N41",
+            "pin": "hidden",
+            "category": "Kabinet",
+            "x": "0.304",
+            "y": "0.369"
+          },
+          {
+            "id": "_x32_N42",
+            "title": "N42",
+            "pin": "hidden",
+            "category": "Kabinet",
+            "x": "0.345",
+            "y": "0.369"
+          },
+          {
+            "id": "_x32_N43",
+            "title": "N43",
+            "pin": "hidden",
+            "category": "Kabinet",
+            "x": "0.391",
+            "y": "0.369"
+          },
+          {
+            "id": "_x32_N44",
+            "title": "N44",
+            "pin": "hidden",
+            "category": "Kabinet",
+            "x": "0.440",
+            "y": "0.369"
+          },
+          {
+            "id": "_x32_N45",
+            "title": "N45",
+            "pin": "hidden",
+            "category": "Kabinet",
+            "x": "0.481",
+            "y": "0.369"
+          },
+          {
+            "id": "_x32_N46",
+            "title": "N46",
+            "pin": "hidden",
+            "category": "Kabinet",
+            "x": "0.526",
+            "y": "0.369"
+          },
+          {
+            "id": "_x32_N47",
+            "title": "N47",
+            "pin": "hidden",
+            "category": "Kabinet",
+            "x": "0.572",
+            "y": "0.369"
+          },
+          {
+            "id": "Seminarska_soba",
+            "title": "Seminarska soba",
+            "pin": "hidden",
+            "category": "Predavalnica",
+            "x": "0.677",
+            "y": "0.369"
+          },
+          {
+            "id": "Dekan_1_",
+            "title": "Dekan",
+            "pin": "hidden",
+            "category": "Drugo",
+            "x": "0.847",
+            "y": "0.517"
+          },
+          {
+            "id": "Tajništvo_dekana",
+            "title": "Tajništvo dekana",
+            "pin": "hidden",
+            "category": "Drugo",
+            "x": "0.854",
+            "y": "0.406"
+          },
+          {
+            "id": "Tajništvo_fakultete",
+            "title": "Tajništvo fakultete",
+            "pin": "hidden",
+            "category": "Drugo",
+            "x": "0.842",
+            "y": "0.591"
+          },
+          {
+            "id": "Kavarna",
+            "title": "Kavarna",
+            "pin": "hidden",
+            "category": "Drugo",
+            "x": "0.138",
+            "y": "0.530"
           }
         ]
       },
