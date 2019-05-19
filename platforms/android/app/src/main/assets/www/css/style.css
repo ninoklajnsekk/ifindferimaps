@@ -64,6 +64,25 @@ width:70%;
 font-size:0.9rem;
 }
 
+#slovensko{
+	background: url('../img/slo.png') no-repeat;
+	background-size: cover;
+   width: 3rem;
+	 height: 1.8rem;
+	 border: 0;
+	 border-radius: 0.1rem;
+}
+
+#anglesko{
+	background: url('../img/en.png') no-repeat;
+	background-size: cover;
+	width: 3rem;
+	height: 1.8rem;
+	border: 0;
+	border-radius: 0.1rem;
+	margin-left: 0.5rem;
+}
+
 hr {
 	border: none;
 	border-bottom: 1px solid #ddd;
@@ -160,6 +179,7 @@ ul p {
 #main-menu li {
 	display: inline-block;
 	margin-left: 30px;
+	font-size:1.2rem;
 }
 
 #main-menu a {
@@ -449,9 +469,9 @@ section.gray:hover {
 		outline:none;
 		z-index:10000000000000;
 	}
-  .menu{z-index:1000000; font-weight:bold; font-size:0.8em; width:100%; background:#f1f1f1;  position:absolute; text-align:center; font-size:12px;}
+  .menu{z-index:1000000; font-weight:bold; font-size:0.8em; width:100%; background:#f1f1f1;  position:absolute; text-align:center; font-size:1rem;}
   .menu ul {margin: 0; padding: 0; list-style-type: none; list-style-image: none;}
-  .menu li {display: block;   padding:15px 0 15px 0; border-bottom:#dddddd 1px solid;}
+  .menu li {display: block;   padding:15px 0 15px 0; border-bottom:#dddddd 1px solid; }
   .menu li:hover{display: block;    background:#ffffff; padding:15px 0 15px 0; border-bottom:#dddddd 1px solid;}
   .menu ul li a { text-decoration:none;  margin: 0px; color:#666;}
   .menu ul li a:hover {  color: #666; text-decoration:none;}

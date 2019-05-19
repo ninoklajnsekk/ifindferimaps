@@ -17,7 +17,6 @@
   <link href="assets/css/styles.css" rel="stylesheet">
 
   <script type="text/javascript" src="js/jquery.min.js"></script>
-  <script type="text/javascript" src="js/menu.js"></script>
   <script type="text/javascript" src="js/translations.js"></script>
   <script type="text/javascript" src="js/hammer.min.js"></script>
   <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
@@ -30,12 +29,10 @@
   <title>iFindFeri</title>
 </head>
 
-<body>
+<body onload="isLangStored()">
   <!-- Hamburger meni-->
   <header>
-    <h1 id="zaposleniH1" class="translate">
-      <script>languageChanged();</script>
-    </h1>
+    <h1 id="zaposleniH1" class="translate"></h1>
     <button class="hamburger">&#9776;</button>
     <button class="cross">&#735;</button>
   </header>
@@ -43,20 +40,18 @@
   <div class="menu">
     <ul>
       <a href="index.html">
-        <li id="domov" class="translate">Domov</li>
+        <li id="domov" class="translate"></li>
       </a>
       <a href="Zaposleni.html">
-        <li id="zaposleni" class="translate">Zaposleni</li>
+        <li id="zaposleni" class="translate"></li>
       </a>
-      <a href="Podrobnosti.html">
-        <li id="podrobnosti" class="translate">Podrobnosti</li>
+      <a href="Help.html">
+        <li id="help" class="translate"></li>
       </a>
-      <a href="#">
-        <li><button onclick="setEnglish()"> Angleško</button></li>
-      </a>
-      <script type="text/javascript">
-        __('<p>Hello World!</p>');
-      </script>
+      <li>
+        <button id="slovensko" onclick="setSlovene()"> </button>
+        <button id="anglesko" onclick="setEnglish()"></button>
+      </li>
     </ul>
   </div>
   <!-- konec menija-->
@@ -64,7 +59,7 @@
   <!-- content -->
 
   <div class="bar bar-standard bar-header-secondary">
-    <input placeholder="Išči" id="searchTextField" class='search-key' type="search" />
+    <input placeholder="Išči" id="searchTextField" class='search-key translate' type="search" />
   </div>
   <hr>
 
