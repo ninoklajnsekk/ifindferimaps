@@ -69,7 +69,7 @@ function filterValuePart(arr, part) {
   return arr.filter(function(obj) {
     return Object.keys(obj)
       .some(function(k) {
-        return obj[k].toLowerCase().indexOf(part) !== -1;
+        return String(obj[k]).toLowerCase().indexOf(part) !== -1;
       });
   });
 }

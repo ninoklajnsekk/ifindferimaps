@@ -28,8 +28,8 @@
     <allow-intent href="*" />
     <allow-navigation href="*" />
     <allow-navigation href="data:*" />
-    <splash density="land-hdpi" src="platforms\android\res\splashhor.png" />
-    <splash density="port-hdpi" src="platforms\android\res\splashver.png" />
+    <splash density="land-hdpi" src="platforms/android/res/splashhor.png" />
+    <splash density="port-hdpi" src="platforms/android/res/splashver.png" />
     <allow-intent href="market:*" />
     <preference name="loglevel" value="DEBUG" />
     <preference name="SplashScreenDelay" value="2000" />

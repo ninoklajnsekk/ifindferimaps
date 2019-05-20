@@ -1,7 +1,11 @@
 //Android
-//var GetMapsUri = "http://10.0.2.2:8000/maps/5cdfe3429598274f2ccb2827";
+var GetMapsUri = "http://10.0.2.2:8000/maps/5cdf1c220205d43f9153b287";
 //browser
+<<<<<<< HEAD
 var GetMapsUri = "http://192.168.0.13:8000/maps/5ce2e12e05b4e72f600d7edd";
+=======
+//var GetMapsUri = "http://192.168.0.13:8000/maps/5ce18f8644a71211dcd4ddd8";
+>>>>>>> 5eefc21f949568f7096910e7181819f62ec4322d
 $(document).ready(function() {
   loadMap();
 });
