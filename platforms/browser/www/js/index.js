@@ -34,10 +34,10 @@ function initializeNFC(){
           nfc_callback(nfcEvent)
       },
       function () { // success callback
-          //alert("Waiting for NDEF tag");
+          console.log('succesful nfc');
       },
       function (error) { // error callback
-          //alert("Error adding NDEF listener " + JSON.stringify(error));
+        console.log('unsuccesful nfc');
       }
   );
 }
