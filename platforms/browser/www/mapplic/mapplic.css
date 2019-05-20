@@ -4,6 +4,39 @@
  * https://www.mapplic.com/
  */
 
+.destination-location {
+	transform: perspective(40px) rotateX(20deg) rotateZ(-45deg);
+	transform-origin: 50% 50%;
+	border-radius: 50% 50% 50% 0;
+	padding: 0 3px 3px 0;
+	width: 40px;
+	height: 40px;
+	background: #DC4B3D;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -2.2em 0 0 -1.3em;
+	-webkit-box-shadow: -1px 1px 4px rgba(0, 0, 0, .5);
+	-moz-box-shadow: -1px 1px 4px rgba(0, 0, 0, .5);
+	box-shadow: -1px 1px 4px rgba(0, 0, 0, .5);
+}
+.current-location{
+	transform: perspective(40px) rotateX(20deg) rotateZ(-45deg);
+	transform-origin: 50% 50%;
+	border-radius: 50% 50% 50% 0;
+	padding: 0 3px 3px 0;
+	width: 40px;
+	height: 40px;
+	background: #1E4C8A;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -2.2em 0 0 -1.3em;
+	-webkit-box-shadow: -1px 1px 4px rgba(0, 0, 0, .5);
+	-moz-box-shadow: -1px 1px 4px rgba(0, 0, 0, .5);
+	box-shadow: -1px 1px 4px rgba(0, 0, 0, .5);
+}
+
 .mapplic-element {
 	position: relative;
 	overflow: hidden;

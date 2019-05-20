@@ -5,6 +5,7 @@
  */
 var global_var ="";
 var current_pos = "";
+var sought_pos = "";
 function nfc_callback(nfcEvent){
 	var tag = nfcEvent.tag,ndefMessage = tag.ndefMessage;
 	var jsonPayload = JSON.parse(nfc.bytesToString(ndefMessage[0].payload).substring(3));
@@ -16,17 +17,56 @@ function nfc_callback(nfcEvent){
 
 function currentLocation(id){
 
-	
+	/*function mark_path(){
+		//this.pin = $('.mapplic-pin[data-location="' + 'alfa' + '"]');
+		var locations = global_var.l
+		
+		 for(var l in locations) {
+			var location = locations[l];
+			if(location.id.includes('nadstropje')){
+				var location = global_var.getLocationData(location.id);
+				var level = $('.mapplic-layer[data-floor=' + location.level + ']', global_var.el);
+				var d = $('<div></div>').attr('href', '#').addClass('mapplic-indicator').css({'top': (location.y * 100) + '%', 'left': (location.x * 100) + '%','height':'25px','width':'25px', 'border-radius':'50%','background-color':'red'}).appendTo(level);
+				d.attr('data-location', location.id);
+			}
+		}
+	}*/
 	var locations = global_var.l
 	 for(var l in locations) {
 		var location = locations[l];
 		if(location.id === id){
 			current_pos = location.id;
 			global_var.showLocation(location.id,1);
-			//mark_path();
+			remove_indicators('current-location');
+			mark_location(id,'current-location');
+			mark_path();
 		}
 	}
+}
+function remove_indicators(indicator_type){
 
+}
+function mark_location(id, indicator_type){
+
+	var location = global_var.getLocationData(id);
+	var level = $('.mapplic-layer[data-floor=' + location.level + ']', global_var.el);
+	var d = $('<div></div>').addClass(indicator_type).css({'top': (location.y * 100) + '%', 'left': (location.x * 100) + '%'}).appendTo(level);
+	d.attr('data-location', location.id);
+
+}
+
+
+function mark_wanted(id)
+{
+	sought_pos = id;
+	mark_path();
+}
+
+function mark_path(){
+	if(sought_pos !== "" && current_pos !== "")
+	{
+		console.log(current_pos + " " + sought_pos);
+	}
 }
 
 
@@ -751,6 +791,9 @@ function currentLocation(id){
 				if (location.thumbnail) $('<img>').attr('src', location.thumbnail).addClass('mapplic-thumbnail').appendTo(link);
 				else if (self.o.thumbholder) this.placeholder(location.title).appendTo(link);
 				$('<h4></h4>').text(location.title).appendTo(link);
+				var my_loc = $('<img>').attr('src', 'mapplic/images/sought_location.png').click(function(){
+					mark_wanted(location.id);
+				});
 				$('<span></span>').html(location.about).addClass('mapplic-about').appendTo(link);
 			
 				// groups
@@ -759,7 +802,7 @@ function currentLocation(id){
 					groups.forEach(function(group) { if (self.g[group]) self.g[group].nr++; });
 				}
 
-				this.list.append(item);
+				this.list.append(item.append(my_loc));
 
 				return item;
 			}
