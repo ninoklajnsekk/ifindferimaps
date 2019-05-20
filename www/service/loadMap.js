@@ -1,7 +1,7 @@
 //Android
 //var GetMapsUri = "http://10.0.2.2:8000/maps/5cdfe3429598274f2ccb2827";
 //browser
-var GetMapsUri = "http://192.168.0.13:8000/maps";
+var GetMapsUri = "http://192.168.0.13:8000/maps/5ce18f8644a71211dcd4ddd8";
 $(document).ready(function() {
   loadMap();
 });
@@ -30,7 +30,7 @@ function loadMap() {
       console.log('Rezultat iz baze');
       console.log(JSON.stringify(data));
       var map = $('#mapplic').mapplic({
-        source: data[0],
+        source: data,
         height: 540,
         sidebar: true,
         lightbox: true,
