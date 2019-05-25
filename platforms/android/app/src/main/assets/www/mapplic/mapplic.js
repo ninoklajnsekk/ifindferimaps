@@ -15,6 +15,10 @@ function nfc_callback(nfcEvent){
 	else alert('NFC tag could not be read!');
 }
 
+function clear_path(){
+	
+}
+
 function currentLocation(id){
 
 	var locations = global_var.l
@@ -23,14 +27,19 @@ function currentLocation(id){
 		if(location.id === id){
 			current_pos = location.id;
 			global_var.showLocation(location.id,1);
-			remove_indicators('current-location');
-			mark_location(id,'current-location');
+			remove_path_indicators('current-location');
+			var loc_pin = mark_location(id,'current-location');
+			loc_pin.click(function(e){
+				current_pos = "";
+				$(e.target).remove();
+			})
 			mark_path();
 		}
 	}
 }
-function remove_indicators(indicator_type){
-
+function remove_path_indicators(indicator_type){
+	$('.'+indicator_type).remove();
+	$('.path-indicator').remove();
 }
 function mark_location(id, indicator_type){
 
@@ -39,13 +48,19 @@ function mark_location(id, indicator_type){
 	var d = $('<div></div>').addClass(indicator_type).css({'top': (location.y * 100) + '%', 'left': (location.x * 100) + '%'}).appendTo(level);
 	d.attr('data-location', location.id);
 
+	return d;
 }
 
 
 function mark_wanted(id)
 {
 	sought_pos = id;
-	mark_location(id, 'destination-location')
+	remove_path_indicators('destination-location');
+	var loc_pin = mark_location(id, 'destination-location');
+	loc_pin.click(function(e){
+		sought_pos = "";
+		$(e.target).remove();
+	})
 	mark_path();
 }
 
@@ -55,6 +70,7 @@ function mark_path(){
 		return;
 	}
 	
+	remove_path_indicators();
 	console.log("Marking path... " + current_pos + " " + sought_pos);
 
 	var current_loc = global_var.getLocationData(current_pos);
@@ -70,7 +86,7 @@ function mark_path(){
 				console.log('marked: ' + location.id)
 				var location = global_var.getLocationData(location.id);
 				var level = $('.mapplic-layer[data-floor=' + location.level + ']', global_var.el);
-				var d = $('<div></div>').attr('href', '#').addClass('mapplic-indicator circle red').css({'top': (location.y * 100) + '%', 'left': (location.x * 100) + '%'}).appendTo(level);
+				var d = $('<div></div>').attr('href', '#').addClass('mapplic-indicator circle red path-indicator').css({'top': (location.y * 100) + '%', 'left': (location.x * 100) + '%'}).appendTo(level);
 				d.attr('data-location', location.id);
 		}
 		else console.log('ni pravilna')
