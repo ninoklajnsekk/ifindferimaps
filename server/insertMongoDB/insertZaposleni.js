@@ -291,7 +291,32 @@ MongoClient.connect(url, function(err, db) {
       "email": "grega.vrbancic@um.si",
       "telefon": "+386 (2) 22 07 411",
       "id_prostora": "Newton"
+    },
+    {
+      "ime": "Marjan",
+      "priimek": "Družovec",
+      "strokovni_naziv": "univ. dipl. inž. el., izr. prof. dr.",
+      "email": "marjan.druzovec@um.si",
+      "telefon": "+386 (2) 22 07 370",
+      "id_prostora": "2N36"
+    },
+    {
+      "ime": "Bogdan",
+      "priimek": "Dugonik",
+      "strokovni_naziv": "viš. pred. dr.",
+      "email": "bogdan.dugonik@um.si",
+      "telefon": "+386 (2) 22 07 214",
+      "id_prostora": "3N57"
+    },
+    {
+      "ime": "Martina",
+      "priimek": "Grace",
+      "strokovni_naziv": "dipl. ekon. (VS)",
+      "email": "martina.grace@um.si",
+      "telefon": "+386 (2) 22 07 026",
+      "id_prostora": "4N76"
     }
+
   ];
   zaposleni.forEach(function(zaposlen) {
     dbo.collection("zaposlens").insertOne(zaposlen, function(err, res) {
