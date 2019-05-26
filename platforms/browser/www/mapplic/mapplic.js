@@ -15,36 +15,31 @@ function nfc_callback(nfcEvent){
 	else alert('NFC tag could not be read!');
 }
 
+function clear_path(){
+	
+}
+
 function currentLocation(id){
 
-	/*function mark_path(){
-		//this.pin = $('.mapplic-pin[data-location="' + 'alfa' + '"]');
-		var locations = global_var.l
-		
-		 for(var l in locations) {
-			var location = locations[l];
-			if(location.id.includes('nadstropje')){
-				var location = global_var.getLocationData(location.id);
-				var level = $('.mapplic-layer[data-floor=' + location.level + ']', global_var.el);
-				var d = $('<div></div>').attr('href', '#').addClass('mapplic-indicator').css({'top': (location.y * 100) + '%', 'left': (location.x * 100) + '%','height':'25px','width':'25px', 'border-radius':'50%','background-color':'red'}).appendTo(level);
-				d.attr('data-location', location.id);
-			}
-		}
-	}*/
 	var locations = global_var.l
 	 for(var l in locations) {
 		var location = locations[l];
 		if(location.id === id){
 			current_pos = location.id;
 			global_var.showLocation(location.id,1);
-			remove_indicators('current-location');
-			mark_location(id,'current-location');
+			remove_path_indicators('current-location');
+			var loc_pin = mark_location(id,'current-location');
+			loc_pin.click(function(e){
+				current_pos = "";
+				$(e.target).remove();
+			})
 			mark_path();
 		}
 	}
 }
-function remove_indicators(indicator_type){
-
+function remove_path_indicators(indicator_type){
+	$('.'+indicator_type).remove();
+	$('.path-indicator').remove();
 }
 function mark_location(id, indicator_type){
 
@@ -53,20 +48,52 @@ function mark_location(id, indicator_type){
 	var d = $('<div></div>').addClass(indicator_type).css({'top': (location.y * 100) + '%', 'left': (location.x * 100) + '%'}).appendTo(level);
 	d.attr('data-location', location.id);
 
+	return d;
 }
 
 
 function mark_wanted(id)
 {
 	sought_pos = id;
+	remove_path_indicators('destination-location');
+	var loc_pin = mark_location(id, 'destination-location');
+	loc_pin.click(function(e){
+		sought_pos = "";
+		$(e.target).remove();
+	})
 	mark_path();
 }
 
 function mark_path(){
-	if(sought_pos !== "" && current_pos !== "")
+	if(sought_pos === "" || current_pos === "")
 	{
-		console.log(current_pos + " " + sought_pos);
+		return;
 	}
+	
+	remove_path_indicators();
+	console.log("Marking path... " + current_pos + " " + sought_pos);
+
+	var current_loc = global_var.getLocationData(current_pos);
+	var destination = global_var.getLocationData(sought_pos);
+	
+	if(current_loc.level === destination.level)
+		return;
+	
+	var locations = global_var.l;
+	for(var l in locations) {
+		var location = locations[l];
+		if((location.id.includes('nadstopje') || location.id.includes('Lift')) && location.level === current_loc.level){
+				console.log('marked: ' + location.id)
+				var location = global_var.getLocationData(location.id);
+				var level = $('.mapplic-layer[data-floor=' + location.level + ']', global_var.el);
+				var d = $('<div></div>').attr('href', '#').addClass('mapplic-indicator circle red path-indicator').css({'top': (location.y * 100) + '%', 'left': (location.x * 100) + '%'}).appendTo(level);
+				d.attr('data-location', location.id);
+		}
+		else console.log('ni pravilna')
+	}
+		
+	
+	
 }
 
 
@@ -791,18 +818,18 @@ function mark_path(){
 				if (location.thumbnail) $('<img>').attr('src', location.thumbnail).addClass('mapplic-thumbnail').appendTo(link);
 				else if (self.o.thumbholder) this.placeholder(location.title).appendTo(link);
 				$('<h4></h4>').text(location.title).appendTo(link);
-				var my_loc = $('<img>').attr('src', 'mapplic/images/sought_location.png').click(function(){
-					mark_wanted(location.id);
-				});
+				
 				$('<span></span>').html(location.about).addClass('mapplic-about').appendTo(link);
-			
+				var my_loc = $('<img>').attr('src', 'mapplic/images/sought_location.png').attr('style','height:15%; width:15%;float:right; margin-top:-7%').click(function(){
+					mark_wanted(location.id);
+				}).appendTo(link);
 				// groups
 				if (location.category) {
 					var groups = location.category.toString().split(',');
 					groups.forEach(function(group) { if (self.g[group]) self.g[group].nr++; });
 				}
-
-				this.list.append(item.append(my_loc));
+				
+				this.list.append(item);
 
 				return item;
 			}

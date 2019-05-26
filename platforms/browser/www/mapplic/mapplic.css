@@ -15,7 +15,8 @@
 	position: absolute;
 	left: 50%;
 	top: 50%;
-	margin: -2.2em 0 0 -1.3em;
+	margin-top: -23px;
+	margin-left: -9px;
 	-webkit-box-shadow: -1px 1px 4px rgba(0, 0, 0, .5);
 	-moz-box-shadow: -1px 1px 4px rgba(0, 0, 0, .5);
 	box-shadow: -1px 1px 4px rgba(0, 0, 0, .5);
@@ -31,7 +32,8 @@
 	position: absolute;
 	left: 50%;
 	top: 50%;
-	margin: -2.2em 0 0 -1.3em;
+	margin-top: -23px;
+	margin-left: -9px;
 	-webkit-box-shadow: -1px 1px 4px rgba(0, 0, 0, .5);
 	-moz-box-shadow: -1px 1px 4px rgba(0, 0, 0, .5);
 	box-shadow: -1px 1px 4px rgba(0, 0, 0, .5);
@@ -43,6 +45,50 @@
 	font-size: 0;
 	font-family: 'Open Sans', sans-serif;
 	height: 420px;
+}
+@keyframes up-right {
+    0% {
+        transform: scale(1);
+        opacity: .25
+    }
+    50% {
+        transform: scale (1, 5);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: .25;
+    }
+}
+.circle {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    opacity: .25;
+}
+.red {
+    background-color: red;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-animation: up-right 2s infinite;
+    -moz-animation: up-right 2s infinite;
+    -o-animation: up-right 2s infinite;
+    animation: up-right 2s infinite;
+}
+.mapplic-indicator {
+	background-repeat: no-repeat;
+	background-position: center;
+	font-size: 0;
+	margin-top: -23px;
+	margin-left: -9px;
+	position: absolute;
+	transform-origin: 50% 100%;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 .mapplic-element input,

@@ -1,7 +1,7 @@
 //Android
-//var GetZaposleniUri = "http://10.0.2.2:8000/zaposleni";
+var GetZaposleniUri = "http://10.0.2.2:8000/zaposleni";
 //browser
-var GetZaposleniUri = "http://localhost:8000/zaposleni";
+//var GetZaposleniUri = "http://localhost:8000/zaposleni";
 $(document).ready(function() {
   $(".cross").hide();
   $(".menu").hide();
@@ -69,7 +69,7 @@ function filterValuePart(arr, part) {
   return arr.filter(function(obj) {
     return Object.keys(obj)
       .some(function(k) {
-        return obj[k].toLowerCase().indexOf(part) !== -1;
+        return String(obj[k]).toLowerCase().indexOf(part) !== -1;
       });
   });
 }
