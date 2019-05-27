@@ -9,8 +9,6 @@ var mongoose = require('mongoose');
 var prostoriRouter = require('./routes/prostori');
 var zaposleniRouter = require('./routes/zaposleni');
 var mapsRouter = require('./routes/maps');
-//var homeTpl = Handlebars.compile($("#home-tpl").html());
-//var employeeListTpl = Handlebars.compile($("#employee-list-tpl").html());
 
 var serverConfig = require('./config');
 
@@ -32,7 +30,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Add headers
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
 
   // Website you wish to allow to connect
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -68,11 +66,11 @@ if (process.env.NODE_ENV !== 'test') {
   });
 }
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 

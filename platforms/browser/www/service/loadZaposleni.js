@@ -2,6 +2,7 @@
 //var GetZaposleniUri = "http://10.0.2.2:8000/zaposleni";
 //browser
 var GetZaposleniUri = "http://localhost:8000/zaposleni";
+var storage = window.localStorage;
 $(document).ready(function () {
   $(".cross").hide();
   $(".menu").hide();
@@ -49,7 +50,14 @@ function getJSONZaposleni(ss) {
     },
     success: function (data, status) {
       console.log('Rezultat iz baze');
-      console.log(JSON.stringify(data));
+      console.log(JSON.stringify(data))
+      if (storage.getItem("lang") === "en") {
+        const en = "en";
+        data = data.filter(item => en.includes(item.lang))
+      } else if (storage.getItem("lang") === "slo") {
+        const en = "sl";
+        data = data.filter(item => en.includes(item.lang))
+      }
       var filtered_data = filterValuePart(data, ss);
       var tabela = null;
       if (filtered_data.length > 0) {

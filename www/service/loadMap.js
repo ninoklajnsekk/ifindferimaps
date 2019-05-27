@@ -1,7 +1,9 @@
-//Android
-//var GetMapsUri = "http://10.0.2.2:8000/maps/5ce3aa68d733861a7895f7a7";
+//browser
 var GetMapsUri = "http://localhost:8000/maps/5ce3aa68d733861a7895f7a7";
-//var GetMapsUri = "http://192.168.0.13:8000/maps/5ce18f8644a71211dcd4ddd8";
+var GetMapsUriEN = "http://localhost:8000/maps/5cebfde8ef6dfa24109e158f";
+//android
+//var GetMapsUri = "http://10.0.2.2:8000/maps/5ce3aa68d733861a7895f7a7";
+//var GetMapsUriEN = "http://10.0.2.2:8000/maps/5cebfde8ef6dfa24109e158f";
 
 var storage = window.localStorage;
 
@@ -10,9 +12,9 @@ $(document).ready(function () {
 });
 
 function loadMap() {
-  if (storage.getItem("lang") == "en") {
+  if (storage.getItem("lang") === "en") {
     console.log('en');
-    $.ajax(GetMapsUri, {
+    $.ajax(GetMapsUriEN, {
       beforeSend: function (xhr) {
         console.log('Pred');
       },
@@ -32,7 +34,7 @@ function loadMap() {
       success: function (data, status) {
         console.log('Rezultat iz baze');
         console.log(JSON.stringify(data));
-        var map = $('#mapplic').mapplic({
+        $('#mapplic').mapplic({
           source: data,
           height: 540,
           sidebar: true,
@@ -50,7 +52,7 @@ function loadMap() {
       }
     });
   }
-  else if (storage.getItem("lang") == "sl") {
+  else if (storage.getItem("lang") === "slo") {
     console.log('sl');
     $.ajax(GetMapsUri, {
       beforeSend: function (xhr) {
@@ -72,7 +74,7 @@ function loadMap() {
       success: function (data, status) {
         console.log('Rezultat iz baze');
         console.log(JSON.stringify(data));
-        var map = $('#mapplic').mapplic({
+        $('#mapplic').mapplic({
           source: data,
           height: 540,
           sidebar: true,
