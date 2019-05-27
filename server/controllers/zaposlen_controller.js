@@ -14,12 +14,12 @@ module.exports.addZaposlen = async function(req, res) {
   const newZaposlen = new Zaposlen(req.body);
   //TODO spremeni
   const schema = Joi.object().keys({
-    ime: Joi.string().alphanum().min(3).max(10).required(),
-    priimek: Joi.string().regex(/^[a-zA-Z0-9]{3,30}$/),
-    strokovni_naziv: [Joi.string(), Joi.number()],
-    email: Joi.string().alphanum().min(3).max(30).required(),
-    telefon: Joi.string().alphanum().min(3).max(30).required(),
-    id_prostora: Joi.string().alphanum().min(24).max(24).required()
+    ime: Joi.required(),
+    priimek: Joi.required(),
+    strokovni_naziv: Joi.required(),
+    email: Joi.required(),
+    telefon: Joi.required(),
+    id_prostora: Joi.required()
   });
 
   const result = Joi.validate({

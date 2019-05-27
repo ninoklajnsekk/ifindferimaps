@@ -1,16 +1,17 @@
 //Android
-var GetMapsUri = "http://192.168.0.13:8000/maps/5ce2e12e05b4e72f600d7edd";
-
-$(document).ready(function() {
+var GetMapsUri = "http://10.0.2.2:8000/maps/5ce3aa68d733861a7895f7a7";
+//var GetMapsUri = "http://192.168.0.13:8000/maps/5ce2e12e05b4e72f600d7edd";
+//var GetMapsUri = "http://192.168.0.13:8000/maps/5ce18f8644a71211dcd4ddd8";
+$(document).ready(function () {
   loadMap();
 });
 
 function loadMap() {
   $.ajax(GetMapsUri, {
-    beforeSend: function(xhr) {
+    beforeSend: function (xhr) {
       console.log('Pred');
     },
-    complete: function() {
+    complete: function () {
       console.log('Po');
     },
     contentType: 'application/json',
@@ -18,14 +19,14 @@ function loadMap() {
     async: true,
     type: 'GET',
     crossDomain: true,
-    error: function(xhr, ajaxOptions, thrownError) {
+    error: function (xhr, ajaxOptions, thrownError) {
       //alert(xhr.status);
       //alert(xhr.responseText);
       console.log('napaka');
       console.log(xhr.status);
       console.log(thrownError);
     },
-    success: function(data, status) {
+    success: function (data, status) {
       console.log('Rezultat iz baze');
       console.log(JSON.stringify(data));
       var map = $('#mapplic').mapplic({

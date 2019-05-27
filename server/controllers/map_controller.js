@@ -14,10 +14,10 @@ module.exports.addMap = async function(req, res) {
   const newMap = new Map(req.body);
   //TODO spremeni
   const schema = Joi.object().keys({
-    mapwidth: Joi.string().alphanum().min(3).max(10).required(),
-    mapheight: Joi.string().regex(/^[a-zA-Z0-9]{3,30}$/),
-    groups: [Joi.string(), Joi.number()],
-    levels: Joi.string().alphanum().min(3).max(30).required()
+    mapwidth: Joi.required(),
+    mapheight: Joi.required(),
+    groups: Joi.required(),
+    levels: Joi.required()
   });
 
   const result = Joi.validate({
