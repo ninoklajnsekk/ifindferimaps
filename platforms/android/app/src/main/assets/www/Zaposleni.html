@@ -10,7 +10,8 @@
   <link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
   <link rel="stylesheet" type="text/css" href="mapplic/mapplic.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
   <link href="assets/ratchet/css/ratchet.css" rel="stylesheet">
   <link href="assets/css/styles.css" rel="stylesheet">
@@ -48,8 +49,8 @@
         <li id="help" class="translate"></li>
       </a>
       <li>
-        <button id="slovensko" onclick="setSlovene()"> </button>
-        <button id="anglesko" onclick="setEnglish()"></button>
+        <button id="slovensko" onclick="setSlovene(); window.location.reload();"> </button>
+        <button id="anglesko" onclick="setEnglish(); window.location.reload();"></button>
       </li>
     </ul>
   </div>
@@ -93,5 +94,6 @@
   </div>
 </script>
 <script type="text/javascript" src="service/loadZaposleni.js"></script>
+<script type="text/javascript" src="service/loadMap.js"></script>
 
 </html>

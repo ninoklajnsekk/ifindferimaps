@@ -1,6 +1,6 @@
 //browser
-var GetMapsUri = "http://localhost:8000/maps/5ce3aa68d733861a7895f7a7";
-var GetMapsUriEN = "http://localhost:8000/maps/5cebfde8ef6dfa24109e158f";
+var GetMapsUri = "http://192.168.0.13:8000/maps/5ced98dd3b11b127fc4a9268";
+var GetMapsUriEN = "http://localhost:8000/maps/5ced98ea06afd547ac6ecba9";
 //android
 //var GetMapsUri = "http://10.0.2.2:8000/maps/5ce3aa68d733861a7895f7a7";
 //var GetMapsUriEN = "http://10.0.2.2:8000/maps/5cebfde8ef6dfa24109e158f";

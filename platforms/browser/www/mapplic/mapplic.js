@@ -1513,6 +1513,9 @@ function mark_path(){
 				self.o.deeplinking = false;
 				self.showLocation(self.o.landmark, 0);
 			}
+
+			$('.mapplic-legend').hide();
+
 		}
 
 		/* PRIVATE METHODS */
