@@ -4,6 +4,40 @@
  * https://www.mapplic.com/
  */
 
+ .mapplic-levels {
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.04);
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 12px;
+	overflow: hidden;
+	font-size: 15px;
+}
+.mapplic-levels-select{
+	font-size: 15px;
+}
+
+ .destination-level-select-pin{
+	transform: perspective(25px) rotateX(20deg) rotateZ(-45deg);
+	transform-origin: 50% 50%;
+	border-radius: 50% 50% 50% 0;
+	width: 10px;
+	height: 10px;
+	background: #DC4B3D;
+	float:right;
+	margin-top:2px;
+ }
+ .current-location-level-select-pin{
+	transform: perspective(25px) rotateX(20deg) rotateZ(-45deg);
+	transform-origin: 50% 50%;
+	border-radius: 50% 50% 50% 0;
+	margin-top:2px;
+	width: 10px;
+	height: 10px;
+	background: #1E4C8A;
+	float:right;
+ }
+
 .destination-location {
 	transform: perspective(30px) rotateX(20deg) rotateZ(-45deg);
 	transform-origin: 50% 50%;
