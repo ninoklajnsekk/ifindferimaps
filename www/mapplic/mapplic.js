@@ -44,6 +44,10 @@ function currentLocation(id){
 function remove_path_indicators(indicator_type){
 	$('.'+indicator_type).remove();
 	$('.path-indicator').remove();
+	if(indicator_type === 'destination-location')
+		$(`option[identified="destination-level-select-pin"]`).attr('identified','')
+	else if(indicator_type === 'current-location')
+		$(`option[identified="current-location-level-select-pin"]`).attr('identified','')
 }
 function mark_location(id, indicator_type){
 
