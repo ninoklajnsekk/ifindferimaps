@@ -5,12 +5,12 @@
  */
 
 .destination-location {
-	transform: perspective(40px) rotateX(20deg) rotateZ(-45deg);
+	transform: perspective(30px) rotateX(20deg) rotateZ(-45deg);
 	transform-origin: 50% 50%;
 	border-radius: 50% 50% 50% 0;
 	padding: 0 3px 3px 0;
-	width: 40px;
-	height: 40px;
+	width: 25px;
+	height: 25px;
 	background: #DC4B3D;
 	position: absolute;
 	left: 50%;
@@ -22,12 +22,12 @@
 	box-shadow: -1px 1px 4px rgba(0, 0, 0, .5);
 }
 .current-location{
-	transform: perspective(40px) rotateX(20deg) rotateZ(-45deg);
+	transform: perspective(30px) rotateX(20deg) rotateZ(-45deg);
 	transform-origin: 50% 50%;
 	border-radius: 50% 50% 50% 0;
 	padding: 0 3px 3px 0;
-	width: 40px;
-	height: 40px;
+	width: 25px;
+	height: 25px;
 	background: #1E4C8A;
 	position: absolute;
 	left: 50%;
