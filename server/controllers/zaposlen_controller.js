@@ -1,7 +1,7 @@
 const Joi = require('@hapi/joi');
 const Zaposlen = require('../models/zaposlen');
 
-module.exports.getZaposleni = async function(req, res) {
+module.exports.getZaposleni = async function (req, res) {
   try {
     const zaposleni = await Zaposlen.find();
     res.json(zaposleni);
@@ -10,16 +10,17 @@ module.exports.getZaposleni = async function(req, res) {
   }
 }
 
-module.exports.addZaposlen = async function(req, res) {
+module.exports.addZaposlen = async function (req, res) {
   const newZaposlen = new Zaposlen(req.body);
   //TODO spremeni
   const schema = Joi.object().keys({
-    ime: Joi.string().alphanum().min(3).max(10).required(),
-    priimek: Joi.string().regex(/^[a-zA-Z0-9]{3,30}$/),
-    strokovni_naziv: [Joi.string(), Joi.number()],
-    email: Joi.string().alphanum().min(3).max(30).required(),
-    telefon: Joi.string().alphanum().min(3).max(30).required(),
-    id_prostora: Joi.string().alphanum().min(24).max(24).required()
+    ime: Joi.required(),
+    priimek: Joi.required(),
+    strokovni_naziv: Joi.required(),
+    email: Joi.required(),
+    telefon: Joi.required(),
+    id_prostora: Joi.required(),
+    lang: Joi.string().max(2)
   });
 
   const result = Joi.validate({
@@ -28,8 +29,9 @@ module.exports.addZaposlen = async function(req, res) {
     strokovni_naziv: newZaposlen.strokovni_naziv,
     email: newZaposlen.email,
     telefon: newZaposlen.telefon,
-    id_prostora: newZaposlen.id_prostora
-  }, schema, async function(err, value) {
+    id_prostora: newZaposlen.id_prostora,
+    lang: newZaposlen.lang
+  }, schema, async function (err, value) {
     if (err === null) {
       let zaposlen = await newZaposlen.save();
       res.json({
@@ -41,7 +43,7 @@ module.exports.addZaposlen = async function(req, res) {
   });
 }
 
-module.exports.getZaposlen = async function(req, res) {
+module.exports.getZaposlen = async function (req, res) {
   try {
     const zaposlen = await Zaposlen.findOne({
       _id: req.params.id
@@ -54,7 +56,7 @@ module.exports.getZaposlen = async function(req, res) {
   }
 }
 
-module.exports.deleteZaposlen = async function(req, res) {
+module.exports.deleteZaposlen = async function (req, res) {
   try {
     let zaposlen = await Zaposlen.findOneAndRemove({
       _id: req.params.id
@@ -70,11 +72,11 @@ module.exports.deleteZaposlen = async function(req, res) {
   }
 }
 
-module.exports.updateZaposlen = async function(req, res) {
+module.exports.updateZaposlen = async function (req, res) {
   try {
     let zaposlen = await Zaposlen.findOneAndUpdate({
-        _id: req.params.id
-      },
+      _id: req.params.id
+    },
       req.body, {
         new: true
       });

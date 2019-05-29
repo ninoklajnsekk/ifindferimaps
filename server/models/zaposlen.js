@@ -26,6 +26,9 @@ const zaposlenSchema = new Schema({
     type: 'String',
     required: true
   },
+  lang: {
+    type: 'String'
+  },
 });
 
 module.exports = mongoose.model('Zaposlen', zaposlenSchema);

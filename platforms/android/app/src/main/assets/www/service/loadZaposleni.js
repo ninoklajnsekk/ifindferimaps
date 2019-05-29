@@ -1,19 +1,21 @@
 //Android
-var GetZaposleniUri = "http://10.0.2.2:8000/zaposleni";
+//var GetZaposleniUri = "http://10.0.2.2:8000/zaposleni";
 //browser
 //var GetZaposleniUri = "http://localhost:8000/zaposleni";
-$(document).ready(function() {
+var GetZaposleniUri = "192.168.0.13:8000/zaposleni";
+var storage = window.localStorage;
+$(document).ready(function () {
   $(".cross").hide();
   $(".menu").hide();
-  $(".hamburger").click(function() {
-    $(".menu").slideToggle("slow", function() {
+  $(".hamburger").click(function () {
+    $(".menu").slideToggle("slow", function () {
       $(".hamburger").hide();
       $(".cross").show();
     });
   });
 
-  $(".cross").click(function() {
-    $(".menu").slideToggle("slow", function() {
+  $(".cross").click(function () {
+    $(".menu").slideToggle("slow", function () {
       $(".cross").hide();
       $(".hamburger").show();
     });
@@ -30,10 +32,10 @@ function getZaposleni() {
 
 function getJSONZaposleni(ss) {
   $.ajax(GetZaposleniUri, {
-    beforeSend: function(xhr) {
+    beforeSend: function (xhr) {
       console.log('Pred');
     },
-    complete: function() {
+    complete: function () {
       console.log('Po');
     },
     contentType: 'application/json',
@@ -41,15 +43,22 @@ function getJSONZaposleni(ss) {
     async: true,
     type: 'GET',
     crossDomain: true,
-    error: function(xhr, ajaxOptions, thrownError) {
+    error: function (xhr, ajaxOptions, thrownError) {
       //alert(xhr.status);
       //alert(xhr.responseText);
       console.log(xhr.status);
       console.log(thrownError);
     },
-    success: function(data, status) {
+    success: function (data, status) {
       console.log('Rezultat iz baze');
-      console.log(JSON.stringify(data));
+      console.log(JSON.stringify(data))
+      if (storage.getItem("lang") === "en") {
+        const en = "en";
+        data = data.filter(item => en.includes(item.lang))
+      } else if (storage.getItem("lang") === "slo") {
+        const en = "sl";
+        data = data.filter(item => en.includes(item.lang))
+      }
       var filtered_data = filterValuePart(data, ss);
       var tabela = null;
       if (filtered_data.length > 0) {
@@ -66,9 +75,9 @@ function getJSONZaposleni(ss) {
 function filterValuePart(arr, part) {
   part = part.toLowerCase();
 
-  return arr.filter(function(obj) {
+  return arr.filter(function (obj) {
     return Object.keys(obj)
-      .some(function(k) {
+      .some(function (k) {
         return String(obj[k]).toLowerCase().indexOf(part) !== -1;
       });
   });

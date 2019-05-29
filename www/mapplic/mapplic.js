@@ -26,6 +26,10 @@ function currentLocation(id){
 		var location = locations[l];
 		if(location.id === id){
 			current_pos = location.id;
+
+			$(`option[identified="current-location-level-select-pin"]`).attr('identified','')
+			$(`option[value=${current_pos.level}]`).attr('identified','current-location-level-select-pin');
+
 			global_var.showLocation(location.id,1);
 			remove_path_indicators('current-location');
 			var loc_pin = mark_location(id,'current-location');
@@ -40,6 +44,10 @@ function currentLocation(id){
 function remove_path_indicators(indicator_type){
 	$('.'+indicator_type).remove();
 	$('.path-indicator').remove();
+	if(indicator_type === 'destination-location')
+		$(`option[identified="destination-level-select-pin"]`).attr('identified','')
+	else if(indicator_type === 'current-location')
+		$(`option[identified="current-location-level-select-pin"]`).attr('identified','')
 }
 function mark_location(id, indicator_type){
 
@@ -57,6 +65,10 @@ function mark_wanted(id)
 	sought_pos = id;
 	remove_path_indicators('destination-location');
 	var loc_pin = mark_location(id, 'destination-location');
+	
+	$(`option[identified="destination-level-select-pin"]`).attr('identified','')
+	$(`option[value=${global_var.getLocationData(id).level}]`).attr('identified','destination-level-select-pin');
+
 	loc_pin.click(function(e){
 		sought_pos = "";
 		$(e.target).remove();
@@ -1372,7 +1384,7 @@ function mark_path(){
 					if (self.minimap) self.minimap.addLayer(level);
 
 					// build layer control
-					self.levelselect.prepend($('<option></option>').attr('value', level.id).text(level.title));
+					self.levelselect.prepend($('<option></option>').attr('identified', level.id).attr('value', level.id).text(level.title));
 
 					// shown level
 					if (!shownLevel || level.show)	shownLevel = level.id;
@@ -1393,9 +1405,9 @@ function mark_path(){
 			// level switcher
 			if (levelnr > 1) {
 				self.levels = $('<div></div>').addClass('mapplic-levels');
-				var up = $('<a href="#"></a>').addClass('mapplic-levels-up').appendTo(self.levels);
+				//var up = $('<a href="#"></a>').addClass('mapplic-levels-up').appendTo(self.levels);
 				self.levelselect.appendTo(self.levels);
-				var down = $('<a href="#"></a>').addClass('mapplic-levels-down').appendTo(self.levels);
+				//var down = $('<a href="#"></a>').addClass('mapplic-levels-down').appendTo(self.levels);
 				self.container.el.append(self.levels);
 			
 				self.levelselect.change(function() {
@@ -1403,7 +1415,8 @@ function mark_path(){
 					self.switchLevel(value);
 				});
 			
-				up.click(function(e) {
+				//Gumbi polek level changer-a se kregajo z novim select2.0
+				/*up.click(function(e) {
 					e.preventDefault();
 					if (!$(this).hasClass('mapplic-disabled')) self.switchLevel('+');
 				});
@@ -1411,7 +1424,7 @@ function mark_path(){
 				down.click(function(e) {
 					e.preventDefault();
 					if (!$(this).hasClass('mapplic-disabled')) self.switchLevel('-');
-				});
+				});*/
 			}
 			self.switchLevel(shownLevel);
 
@@ -1513,6 +1526,10 @@ function mark_path(){
 				self.o.deeplinking = false;
 				self.showLocation(self.o.landmark, 0);
 			}
+
+			$('.mapplic-legend').hide();
+			redesign_select();
+
 		}
 
 		/* PRIVATE METHODS */
@@ -1886,3 +1903,22 @@ function mark_path(){
 jQuery(document).ready(function($) {
 	$('[id^=mapplic-id]').mapplic();
 });
+
+function redesign_select(){
+	
+	$('select').select2({
+		templateResult: formatOptions,
+		minimumResultsForSearch: Infinity
+		
+	});
+	console.log($('select'));
+}
+
+function formatOptions (state) {
+	if (!state.id) { return state.text; }
+		console.log(state)
+	 var $state = $(
+	 '<div class="text-level-select"><span>' + state.text + '</span><div class='+JSON.stringify(state.element.attributes[0].nodeValue)+'></div></div>'
+	);
+	return $state;
+  }
