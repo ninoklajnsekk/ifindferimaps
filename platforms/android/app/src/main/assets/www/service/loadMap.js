@@ -2,8 +2,8 @@
 //var GetMapsUri = "http://localhost:8000/maps/5ce3aa68d733861a7895f7a7";
 //var GetMapsUriEN = "http://localhost:8000/maps/5cebfde8ef6dfa24109e158f";
 //android
-var GetMapsUri = "http://10.0.2.2:8000/maps/5ce3aa68d733861a7895f7a7";
-var GetMapsUriEN = "http://10.0.2.2:8000/maps/5cebfde8ef6dfa24109e158f";
+var GetMapsUri = "http://10.0.2.2:8000/maps/5ceea79301f62a1474fe0471";
+var GetMapsUriEN = "http://10.0.2.2:8000/maps/5ceea799c75e224288d49ecd";
 
 var storage = window.localStorage;
 
