@@ -26,12 +26,12 @@ function currentLocation(id){
 		var location = locations[l];
 		if(location.id === id){
 			current_pos = location.id;
-
-			$(`option[identified="current-location-level-select-pin"]`).attr('identified','')
-			$(`option[value=${current_pos.level}]`).attr('identified','current-location-level-select-pin');
-
 			global_var.showLocation(location.id,1);
 			remove_path_indicators('current-location');
+
+			$(`option[identified="current-location-level-select-pin"]`).attr('identified','')
+			$(`option[value=${location.level}]`).attr('identified','current-location-level-select-pin');
+
 			var loc_pin = mark_location(id,'current-location');
 			loc_pin.click(function(e){
 				current_pos = "";
