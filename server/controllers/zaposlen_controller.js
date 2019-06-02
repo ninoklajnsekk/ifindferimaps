@@ -1,5 +1,6 @@
 const Joi = require('@hapi/joi');
 const Zaposlen = require('../models/zaposlen');
+const CustomJoi = Joi.extend(require('joi-phone-number'));
 
 module.exports.getZaposleni = async function (req, res) {
   try {
@@ -12,18 +13,18 @@ module.exports.getZaposleni = async function (req, res) {
 
 module.exports.addZaposlen = async function (req, res) {
   const newZaposlen = new Zaposlen(req.body);
-  //TODO spremeni
+
   const schema = Joi.object().keys({
-    ime: Joi.required(),
-    priimek: Joi.required(),
-    strokovni_naziv: Joi.required(),
-    email: Joi.required(),
-    telefon: Joi.required(),
-    id_prostora: Joi.required(),
+    ime: Joi.string().required(),
+    priimek: Joi.string().required(),
+    strokovni_naziv: Joi.string().required(),
+    email: Joi.string().email({ minDomainSegments: 2 }).required(),
+    telefon: CustomJoi.phoneNumber().required(),
+    id_prostora: Joi.string().required(),
     lang: Joi.string().max(2)
   });
 
-  const result = Joi.validate({
+  Joi.validate({
     ime: newZaposlen.ime,
     priimek: newZaposlen.priimek,
     strokovni_naziv: newZaposlen.strokovni_naziv,
