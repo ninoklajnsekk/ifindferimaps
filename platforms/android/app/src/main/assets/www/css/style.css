@@ -494,3 +494,29 @@ section.gray:hover {
   a{
 	  color:#336699;
 	}
+
+	.ys-counter {
+		margin:0;
+		padding:0;
+		list-style-type: none;
+		border-spacing:0 10px;
+	  }
+	  
+	  .ys-counter li {
+		position:relative;
+		margin: 0 10px 10px 10px;
+		padding:5px 50px;
+		list-style-type: none;
+		counter-increment: step-counter;
+	  }
+	  .ys-counter li::before {
+		position:absolute;
+		content: counter(step-counter);
+		margin:-3px 0 0 -30px;
+		font-size: 80%;
+		background-color: #ffcb08;
+		color: white;
+		font-weight: bold;
+		padding: 4px 8px;
+		border-radius: 50%;
+	  }
