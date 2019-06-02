@@ -118,7 +118,7 @@ MongoClient.connect(url, function (err, db) {
     "strokovni_naziv": "asist. dr",
     "email": "	gregor.jost@um.si",
     "telefon": "+386 (2) 22 07 350",
-    "id_prostora": "1N10",
+    "id_prostora": "_x31_N08",
     "lang": "sl"
   },
   {
@@ -307,7 +307,7 @@ MongoClient.connect(url, function (err, db) {
     "strokovni_naziv": "asist.",
     "email": "viktor.taneski@um.si",
     "telefon": "+386 (2) 220-7355",
-    "id_prostora": "1N10",
+    "id_prostora": "_x31_N08",
     "lang": "sl"
   },
   {

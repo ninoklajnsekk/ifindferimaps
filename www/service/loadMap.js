@@ -2,11 +2,10 @@
 //var GetMapsUri = "http://localhost:8000/maps/5ce3aa68d733861a7895f7a7";
 //var GetMapsUriEN = "http://localhost:8000/maps/5cebfde8ef6dfa24109e158f";
 //android
-var GetMapsUri = "http://192.168.0.13:8000/maps/5ce2e12e05b4e72f600d7edd";
-var GetMapsUriEN = "http://192.168.0.13:8000/maps/5ced98ea06afd547ac6ecba9";
-
+var GetMapsUri = "http://10.0.2.2:8000/maps/5ce3aa68d733861a7895f7a7";
+var GetMapsUriEN = "http://10.0.2.2:8000/maps/5cebfde8ef6dfa24109e158f";
+var mapMain;
 var storage = window.localStorage;
-
 $(document).ready(function () {
   loadMap();
 });
@@ -34,7 +33,7 @@ function loadMap() {
       success: function (data, status) {
         console.log('Rezultat iz baze');
         console.log(JSON.stringify(data));
-        $('#mapplic').mapplic({
+        map = $('#mapplic').mapplic({
           source: data,
           height: 540,
           sidebar: true,
@@ -49,6 +48,7 @@ function loadMap() {
           developer: false,
           hidenofilter: true,
         });
+        showLocationOnLoad(map);
       }
     });
   }
@@ -74,7 +74,7 @@ function loadMap() {
       success: function (data, status) {
         console.log('Rezultat iz baze');
         console.log(JSON.stringify(data));
-        $('#mapplic').mapplic({
+        var map = $('#mapplic').mapplic({
           source: data,
           height: 540,
           sidebar: true,
@@ -89,7 +89,18 @@ function loadMap() {
           developer: false,
           hidenofilter: true,
         });
+        showLocationOnLoad(map);
+        mapMain = map;
       }
     });
+  }
+}
+
+function showLocationOnLoad(map) {
+  if ("locationId" in storage) {
+    console.log('id lokacije ' + storage.getItem('locationId'));
+    var self = map.data('mapplic');
+    setTimeout(function () { self.showLocation(storage.getItem('locationId'), 1); }, 3000);
+    setTimeout(function () { storage.removeItem('locationId'); }, 3000);
   }
 }
