@@ -1,7 +1,7 @@
 const Joi = require('@hapi/joi');
 const Map = require('../models/map');
 
-module.exports.getMaps = async function(req, res) {
+module.exports.getMaps = async function (req, res) {
   try {
     const maps = await Map.find();
     res.json(maps);
@@ -10,22 +10,22 @@ module.exports.getMaps = async function(req, res) {
   }
 }
 
-module.exports.addMap = async function(req, res) {
+module.exports.addMap = async function (req, res) {
   const newMap = new Map(req.body);
-  //TODO spremeni
+
   const schema = Joi.object().keys({
-    mapwidth: Joi.required(),
-    mapheight: Joi.required(),
+    mapwidth: Joi.number().required(),
+    mapheight: Joi.number().required(),
     groups: Joi.required(),
     levels: Joi.required()
   });
 
-  const result = Joi.validate({
+  Joi.validate({
     mapwidth: newMap.mapwidth,
     mapheight: newMap.mapheight,
     groups: newMap.groups,
     levels: newMap.levels
-  }, schema, async function(err, value) {
+  }, schema, async function (err, value) {
     if (err === null) {
       let map = await newMap.save();
       res.json({
@@ -37,7 +37,7 @@ module.exports.addMap = async function(req, res) {
   });
 }
 
-module.exports.getMap = async function(req, res) {
+module.exports.getMap = async function (req, res) {
   try {
     const map = await Map.findOne({
       _id: req.params.id
@@ -48,7 +48,7 @@ module.exports.getMap = async function(req, res) {
   }
 }
 
-module.exports.deleteMap = async function(req, res) {
+module.exports.deleteMap = async function (req, res) {
   try {
     let map = await Map.findOneAndRemove({
       _id: req.params.id
@@ -64,11 +64,11 @@ module.exports.deleteMap = async function(req, res) {
   }
 }
 
-module.exports.updateMap = async function(req, res) {
+module.exports.updateMap = async function (req, res) {
   try {
     let map = await Map.findOneAndUpdate({
-        _id: req.params.id
-      },
+      _id: req.params.id
+    },
       req.body, {
         new: true
       });

@@ -2,6 +2,7 @@
 //var GetZaposleniUri = "http://10.0.2.2:8000/zaposleni";
 //browser
 var GetZaposleniUri = "http://localhost:8000/zaposleni";
+
 var storage = window.localStorage;
 $(document).ready(function () {
   $(".cross").hide();
@@ -80,4 +81,10 @@ function filterValuePart(arr, part) {
         return String(obj[k]).toLowerCase().indexOf(part) !== -1;
       });
   });
+}
+
+function saveLocationId(id) {
+  console.log(id);
+  storage.setItem("locationId", id);
+  window.location.href = 'index.html';
 }
