@@ -52,7 +52,6 @@ function setSlovene() {
     Messages.first = "Na napravi vklopite NFC.";
     Messages.second = "Napravo približajte NFC oddajniku.";
     Messages.third = "Aplikacija bo vašo lokacijo prikazala na mapi.";
-    Messages.third = "Pomoč za NFC";
     storage.setItem("lang", "slo");
     loadMap();
     languageSet();

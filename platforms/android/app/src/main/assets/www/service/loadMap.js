@@ -1,16 +1,11 @@
 //browser
-//var GetMapsUri = "http://localhost:8000/maps/5ce3aa68d733861a7895f7a7";
-//var GetMapsUriEN = "http://localhost:8000/maps/5cebfde8ef6dfa24109e158f";
+var GetMapsUri = "http://164.8.251.70:8000/maps/5ce3aa68d733861a7895f7a7";
+var GetMapsUriEN = "http://164.8.251.70:8000/maps/5cebfde8ef6dfa24109e158f";
 //android
-<<<<<<< HEAD
-var GetMapsUri = "http://192.168.0.13:8000/maps/5ce2e12e05b4e72f600d7edd";
-var GetMapsUriEN = "http://192.168.0.13:8000/maps/5ced98ea06afd547ac6ecba9";
+// var GetMapsUri = "http://192.168.0.13:8000/maps/5ce2e12e05b4e72f600d7edd";
+// var GetMapsUriEN = "http://192.168.0.13:8000/maps/5ced98ea06afd547ac6ecba9";
 
-=======
-var GetMapsUri = "http://10.0.2.2:8000/maps/5ce3aa68d733861a7895f7a7";
-var GetMapsUriEN = "http://10.0.2.2:8000/maps/5cebfde8ef6dfa24109e158f";
 var mapMain;
->>>>>>> develope
 var storage = window.localStorage;
 $(document).ready(function () {
   loadMap();

@@ -496,7 +496,7 @@ section.gray:hover {
 	}
 
 	.ys-counter {
-		margin:0;
+		margin-left:15%;
 		padding:0;
 		list-style-type: none;
 		border-spacing:0 10px;
@@ -512,11 +512,17 @@ section.gray:hover {
 	  .ys-counter li::before {
 		position:absolute;
 		content: counter(step-counter);
-		margin:-3px 0 0 -30px;
+		margin:20px 0 0 -30px;
 		font-size: 80%;
-		background-color: #ffcb08;
+		background-color: #1081e0;
 		color: white;
 		font-weight: bold;
 		padding: 4px 8px;
 		border-radius: 50%;
 	  }
+
+ .image {
+	 width:85%;
+	 height:auto;
+ }
+
