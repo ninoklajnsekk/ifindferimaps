@@ -1,5 +1,6 @@
 //Android
 var GetZaposleniUri = "http://localhost:8000/zaposleni";
+
 //browser
 //var GetZaposleniUri = "http://localhost:8000/zaposleni";
 

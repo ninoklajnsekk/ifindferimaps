@@ -1,5 +1,9 @@
 //Android
+<<<<<<< HEAD
 var GetZaposleniUri = "http://localhost:8000/zaposleni";
+=======
+var GetZaposleniUri = "http://192.168.0.13:8000/zaposleni";
+>>>>>>> nino-develope
 //browser
 //var GetZaposleniUri = "http://localhost:8000/zaposleni";
 
