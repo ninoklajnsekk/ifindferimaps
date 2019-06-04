@@ -1,11 +1,4 @@
 //browser
-<<<<<<< HEAD
-// var GetMapsUri = "http://localhost:8000/maps/5cf3af7f5339ac5524b80e5a";
-// var GetMapsUriEN = "http://localhost:8000/maps/5cf3af840a8f305a50cbd705";
-//android
-var GetMapsUri = "http://10.0.2.2:8000/maps/5ce3aa68d733861a7895f7a7";
-var GetMapsUriEN = "http://10.0.2.2:8000/maps/5cebfde8ef6dfa24109e158f";
-=======
 var GetMapsUri = "http://192.168.0.13:8000/maps/5ce2e12e05b4e72f600d7edd";
 var GetMapsUriEN = "http://192.168.0.13:8000/maps/5ced98ea06afd547ac6ecba9";
 //android
@@ -14,13 +7,9 @@ var GetMapsUriEN = "http://192.168.0.13:8000/maps/5ced98ea06afd547ac6ecba9";
 
 var mapsURL = [GetMapsUri, GetMapsUriEN];
 var mapsLang = ['slo', 'en'];
->>>>>>> nino-develope
 
 var mapMain;
 
-<<<<<<< HEAD
-var storage = window.localStorage;
-=======
 var db;
 var databaseName = 'feriMaps';
 var databaseVersion = 1;
@@ -211,7 +200,6 @@ function checkDateAndUpdate(datetime, language)
 
 
 
->>>>>>> nino-develope
 $(document).ready(function () {
   initializeDB();
   
@@ -298,13 +286,9 @@ function loadMap()
       success: function (data, status) {
         console.log('Rezultat iz baze');
         console.log(JSON.stringify(data));
-<<<<<<< HEAD
-        map = $('#mapplic').mapplic({
-=======
         var tempData = data;
         tempData['lang'] = 'en';
         $('#mapplic').mapplic({
->>>>>>> nino-develope
           source: data,
           height: 540,
           sidebar: true,
@@ -365,17 +349,4 @@ function loadMap()
       }
     });
   }
-<<<<<<< HEAD
-}
-
-function showLocationOnLoad(map) {
-  if ("locationId" in storage) {
-    console.log('id lokacije ' + storage.getItem('locationId'));
-    var self = map.data('mapplic');
-    setTimeout(function () { self.showLocation(storage.getItem('locationId'), 1); }, 3000);
-    setTimeout(function () { storage.removeItem('locationId'); }, 3000);
-  }
-}
-=======
 }*/
->>>>>>> nino-develope

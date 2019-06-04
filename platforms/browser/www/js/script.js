@@ -28,3 +28,9 @@ $(document).ready(function() {
     console.log(JSON.stringify(err))
   });
 });
+
+document.addEventListener("offline", onOffline, false);
+
+function onOffline() {
+    alert('Your device seems to be offline. Usage of application is limited in offline mode.');
+}

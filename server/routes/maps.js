@@ -11,6 +11,9 @@ router.route('/:id').get(map_controller.getMap);
 // add
 router.route('/').post(map_controller.addMap);
 
+// get by id - only timestamp
+router.route('/:id/created').get(map_controller.getMapTimestamp);
+
 // delete
 router.route('/:id').delete(map_controller.deleteMap);
 
