@@ -43,4 +43,5 @@ function initializeNFC(){
 }
 
 
+
 app.initialize();

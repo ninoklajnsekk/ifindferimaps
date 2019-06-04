@@ -43,4 +43,10 @@ function initializeNFC(){
 }
 
 
+document.addEventListener("offline", onOffline, false);
+
+function onOffline() {
+    lert('Your device seems to be offline. Usage of application is limited in offline mode.');
+}
+
 app.initialize();
