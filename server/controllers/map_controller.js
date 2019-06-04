@@ -42,11 +42,30 @@ module.exports.getMap = async function(req, res) {
     const map = await Map.findOne({
       _id: req.params.id
     });
+    let timestamp = map._id.getTimestamp();
+    //map = JSON.parse(map)
+    //map['createdAt'] = timestamp
+    map['createdAt'] = timestamp
+    console.log(map.created);
     res.json(map);
   } catch (err) {
     return res.status(500).send(err);
   }
 }
+
+module.exports.getMapTimestamp = async function(req, res) {
+  try {
+    const map = await Map.findOne({
+      _id: req.params.id
+    });
+    let timestamp = map._id.getTimestamp();
+    let json_time = {'timestamp': timestamp};
+    res.json(json_time);
+  } catch (err) {
+    return res.status(500).send(err);
+  }
+}
+
 
 module.exports.deleteMap = async function(req, res) {
   try {

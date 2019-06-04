@@ -17,7 +17,12 @@ const mapSchema = new Schema({
     type: [
       'Mixed'
     ]
+  },
+  createdAt:{
+    type: Date
   }
+},{
+  timestamps: { createdAt: true, updatedAt: false }
 });
 
 module.exports = mongoose.model('Map', mapSchema);

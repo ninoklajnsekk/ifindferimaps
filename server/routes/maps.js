@@ -8,6 +8,9 @@ router.route('/').get(map_controller.getMaps);
 // get by id
 router.route('/:id').get(map_controller.getMap);
 
+// get by id - only timestamp
+router.route('/:id/created').get(map_controller.getMapTimestamp);
+
 // add
 router.route('/').post(map_controller.addMap);
 

@@ -28,6 +28,13 @@ function currentLocation(id){
 			current_pos = location.id;
 			global_var.showLocation(location.id,1);
 			remove_path_indicators('current-location');
+<<<<<<< Updated upstream
+=======
+
+			$(`option[identified="current-location-level-select-pin"]`).attr('identified','')
+			$(`option[value=${location.level}]`).attr('identified','current-location-level-select-pin');
+
+>>>>>>> Stashed changes
 			var loc_pin = mark_location(id,'current-location');
 			loc_pin.click(function(e){
 				current_pos = "";
