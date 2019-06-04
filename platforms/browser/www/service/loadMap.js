@@ -241,8 +241,9 @@ function loadMap()
             data = maps[i];
         }
       }
+      
       console.log(JSON.stringify(data));
-      $('#mapplic').mapplic({
+      let map = $('#mapplic').mapplic({
         source: data,
         height: 540,
         sidebar: true,
@@ -257,8 +258,20 @@ function loadMap()
         developer: false,
         hidenofilter: true,
       });
+      showLocationOnLoad(map);
     }
 }
+}
+
+function showLocationOnLoad(map) {
+  console.log('showlocation')
+  console.log(storage.getItem('locationId'))
+  if ("locationId" in storage) {
+    console.log('id lokacije ' + storage.getItem('locationId'));
+    var self = map.data('mapplic');
+    setTimeout(function () { self.showLocation(storage.getItem('locationId'), 1); }, 3000);
+    setTimeout(function () { storage.removeItem('locationId'); }, 3000);
+  }
 }
 
 
