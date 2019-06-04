@@ -832,7 +832,7 @@ function mark_path(){
 				$('<h4></h4>').text(location.title).appendTo(link);
 				
 				$('<span></span>').html(location.about).addClass('mapplic-about').appendTo(link);
-				var my_loc = $('<img>').attr('src', 'mapplic/images/sought_location.png').attr('style','height:15%; width:15%;float:right; margin-top:-7%').click(function(){
+				var my_loc = $('<img>').attr('src', 'mapplic/images/navigation.png').attr('style','height:12%; width:12%;float:right; margin-top:-18px').click(function(){
 					mark_wanted(location.id);
 				}).appendTo(link);
 				// groups
