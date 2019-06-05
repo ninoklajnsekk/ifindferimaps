@@ -623,7 +623,7 @@ function mark_path(){
 			this.nr = 0;
 
 			this.init = function() {
-				this.el = $('<div></div>').addClass('mapplic-legend');
+				this.el = $('<div></div>').addClass('mapplic-legend').hide();
 				return this;
 			}
 
@@ -1495,11 +1495,17 @@ function mark_path(){
 			// trigger event
 			self.el.trigger('mapready', self);
 
+			
+			
 			// alphabetic sort
 			if (self.o.alphabetic && self.sidebar) self.sidebar.sort();
 
+			
+
 			// apply toggle
 			self.legend.applyToggles();
+
+			
 
 			// CSV support
 			if (self.o.csv) { 
@@ -1513,7 +1519,7 @@ function mark_path(){
 					}
 				});
 			}
-
+			
 			self.container.resetZoom();
 			if (self.deeplinking) self.deeplinking.check(0);
 
@@ -1526,10 +1532,8 @@ function mark_path(){
 				self.o.deeplinking = false;
 				self.showLocation(self.o.landmark, 0);
 			}
-
-			$('.mapplic-legend').hide();
 			redesign_select();
-
+			$('.mapplic-legend').hide();
 		}
 
 		/* PRIVATE METHODS */

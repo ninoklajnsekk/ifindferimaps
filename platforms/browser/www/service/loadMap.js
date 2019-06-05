@@ -1,9 +1,11 @@
 //browser
-var GetMapsUri = "http://192.168.0.13:8000/maps/5ce2e12e05b4e72f600d7edd";
-var GetMapsUriEN = "http://192.168.0.13:8000/maps/5ced98ea06afd547ac6ecba9";
+var GetMapsUri = "http://192.168.0.13:8000/maps/5cf6d65fe3a2ec3d78838257";
+var GetMapsUriEN = "http://192.168.0.13:8000/maps/5cf6d6639f8da512688da8e0";
 //android
 //var GetMapsUri = "http://10.0.2.2:8000/maps/5ce3aa68d733861a7895f7a7";
 //var GetMapsUriEN = "http://10.0.2.2:8000/maps/5cebfde8ef6dfa24109e158f";
+
+var storage = window.localStorage;
 
 var mapsURL = [GetMapsUri, GetMapsUriEN];
 var mapsLang = ['slo', 'en'];
@@ -243,7 +245,7 @@ function loadMap()
       }
       
       console.log(JSON.stringify(data));
-      let map = $('#mapplic').mapplic({
+      var map = $('#mapplic').mapplic({
         source: data,
         height: 540,
         sidebar: true,
@@ -259,6 +261,7 @@ function loadMap()
         hidenofilter: true,
       });
       showLocationOnLoad(map);
+      mapMain = map;
     }
 }
 }
@@ -269,7 +272,10 @@ function showLocationOnLoad(map) {
   if ("locationId" in storage) {
     console.log('id lokacije ' + storage.getItem('locationId'));
     var self = map.data('mapplic');
-    setTimeout(function () { self.showLocation(storage.getItem('locationId'), 1); }, 3000);
+    var storage_loc = storage.getItem('locationId');
+    map.data('mapplic').showLocation(storage_loc, 1);
+    //storage.removeItem('locationId');
+    //setTimeout(function () { self.showLocation(storage.getItem('locationId'), 1); }, 3000);
     setTimeout(function () { storage.removeItem('locationId'); }, 3000);
   }
 }

@@ -526,3 +526,13 @@ section.gray:hover {
 	 height:auto;
  }
 
+
+ #demo{
+	position:relative;
+	width:2.5rem;
+	height:2.5rem;
+	margin-left:85%;
+	z-index:1;
+	margin-top:-2rem;
+	margin-right:0 !important;
+ }
