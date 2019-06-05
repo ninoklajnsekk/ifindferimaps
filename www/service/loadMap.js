@@ -272,9 +272,10 @@ function showLocationOnLoad(map) {
   if ("locationId" in storage) {
     console.log('id lokacije ' + storage.getItem('locationId'));
     var self = map.data('mapplic');
-    map.data('mapplic').showLocation(storage.getItem('locationId'), 1);
-    console.log(JSON.stringify(self))
-    setTimeout(function () { self.showLocation(storage.getItem('locationId'), 1); }, 3000);
+    var storage_loc = storage.getItem('locationId');
+    map.data('mapplic').showLocation(storage_loc, 1);
+    //storage.removeItem('locationId');
+    //setTimeout(function () { self.showLocation(storage.getItem('locationId'), 1); }, 3000);
     setTimeout(function () { storage.removeItem('locationId'); }, 3000);
   }
 }
